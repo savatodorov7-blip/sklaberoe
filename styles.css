@@ -208,9 +208,11 @@ h3 {
   bottom: 0;
   width: 26%;
   content: "";
-  border-inline: 1px solid var(--color-lime-soft);
-  background: linear-gradient(135deg, transparent, var(--color-lime-faint));
-  opacity: 0.45;
+  border-inline: 1px solid var(--color-lime-border);
+  background:
+    linear-gradient(135deg, transparent 18%, var(--color-green-glow-soft) 100%),
+    linear-gradient(90deg, transparent, var(--color-lime-faint));
+  opacity: 0.56;
   transform: skewX(-12deg);
 }
 
@@ -334,48 +336,48 @@ h2 {
     var(--color-bg);
 }
 
-.about-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.82fr);
-  gap: clamp(50px, 7vw, 100px);
-  align-items: center;
-}
-
 .about-intro h2 {
   margin-bottom: 26px;
 }
 
+.about-intro {
+  max-width: 850px;
+  margin-bottom: 44px;
+}
+
 .about-intro .section-copy {
-  max-width: 680px;
+  max-width: 800px;
   margin-bottom: 0;
 }
 
 .about-values {
   display: grid;
-  gap: 12px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
 }
 
 .value-card {
-  display: grid;
-  grid-template-columns: 42px 1fr;
-  gap: 18px;
-  padding: 22px 24px;
+  min-height: 158px;
+  padding: 22px;
   border: 1px solid var(--color-border);
   background: var(--color-bg-soft);
   border-radius: 9px;
 }
 
-.value-number {
-  padding-top: 3px;
-  color: var(--color-lime);
-  font-size: 0.74rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
+.value-card h3 {
+  margin-bottom: 10px;
+  color: var(--color-text);
+  font-size: 1.12rem;
 }
 
-.value-card h3 {
-  margin-bottom: 5px;
-  font-size: 1.12rem;
+.value-card h3::before {
+  display: inline-block;
+  width: 18px;
+  height: 3px;
+  margin-right: 10px;
+  vertical-align: middle;
+  content: "";
+  background: var(--color-lime);
 }
 
 .value-card p {
@@ -401,7 +403,7 @@ h2 {
 }
 
 .training-card {
-  min-height: 320px;
+  min-height: 240px;
   padding: 34px;
   border: 1px solid var(--color-border);
   background: var(--color-surface);
@@ -414,18 +416,26 @@ h2 {
   transform: translateY(-6px);
 }
 
-.card-number {
-  display: block;
-  margin-bottom: 70px;
-  color: var(--color-lime);
-  font-size: 0.8rem;
-  font-weight: 800;
-}
-
 .training-card h3 {
-  margin-bottom: 16px;
+  margin-bottom: 10px;
   font-size: 1.4rem;
   line-height: 1.25;
+}
+
+.training-age {
+  display: inline-flex;
+  min-height: 27px;
+  margin-bottom: 20px;
+  padding: 4px 10px;
+  align-items: center;
+  color: var(--color-lime);
+  background: var(--color-lime-faint);
+  border: 1px solid var(--color-lime-soft);
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .training-card p {
@@ -439,8 +449,44 @@ h2 {
     radial-gradient(circle at 20% 50%, var(--color-green-glow-soft), transparent 36%);
 }
 
+.achievement-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.achievement-card {
+  min-height: 220px;
+  padding: 30px;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-soft);
+  border-radius: var(--radius);
+}
+
+.achievement-accent {
+  display: block;
+  width: 42px;
+  height: 3px;
+  margin-bottom: 42px;
+  background: var(--color-lime);
+}
+
+.achievement-card h3 {
+  margin-bottom: 13px;
+  font-size: 1.3rem;
+  line-height: 1.25;
+}
+
+.achievement-card p {
+  margin-bottom: 0;
+  color: var(--color-muted);
+}
+
 .contact-section {
-  background: var(--color-green);
+  border-top: 1px solid var(--color-border);
+  background:
+    radial-gradient(circle at 88% 30%, var(--color-green-glow-soft), transparent 30%),
+    var(--color-bg);
 }
 
 .contact-section .section-label {
@@ -450,31 +496,31 @@ h2 {
 .contact-section .section-copy {
   max-width: 600px;
   margin-top: 24px;
-  color: var(--color-white-muted);
+  color: var(--color-muted);
 }
 
-.contact-details {
+.contact-heading {
+  max-width: 720px;
+  margin-bottom: 42px;
+}
+
+.contact-cards {
   display: grid;
-  gap: 26px;
-  padding: 36px;
-  background: var(--color-bg);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.contact-card {
+  min-height: 140px;
+  padding: 26px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
   border-radius: var(--radius);
-  font-style: normal;
 }
 
-.contact-item {
-  padding-bottom: 24px;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.contact-item:last-child {
-  padding-bottom: 0;
-  border-bottom: 0;
-}
-
-.contact-item span {
+.contact-card span {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 18px;
   color: var(--color-lime);
   font-size: 0.74rem;
   font-weight: 800;
@@ -482,20 +528,44 @@ h2 {
   text-transform: uppercase;
 }
 
-.contact-item a,
-.contact-item p {
+.contact-card p,
+.contact-card a {
   margin: 0;
+  color: var(--color-text);
   font-size: 1.08rem;
   font-weight: 700;
 }
 
-.contact-item a:hover {
+.contact-card a {
+  overflow-wrap: anywhere;
+  transition: color var(--transition);
+}
+
+.contact-card a:hover,
+.contact-card a:focus-visible {
   color: var(--color-lime);
+}
+
+.contact-cta {
+  max-width: 850px;
+  margin: 34px 0 0;
+  padding-top: 28px;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text);
+  font-size: 1.08rem;
+  font-weight: 700;
 }
 
 .site-footer {
   padding: 34px 0;
   border-top: 1px solid var(--color-border);
+}
+
+.footer-logo {
+  display: block;
+  width: auto;
+  height: 40px;
+  object-fit: contain;
 }
 
 .footer-inner {
@@ -588,12 +658,19 @@ h2 {
     gap: 34px;
   }
 
-  .about-layout {
+  .cards {
     grid-template-columns: 1fr;
-    gap: 40px;
   }
 
-  .cards {
+  .achievement-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .about-values {
     grid-template-columns: 1fr;
   }
 
@@ -601,9 +678,6 @@ h2 {
     min-height: 0;
   }
 
-  .card-number {
-    margin-bottom: 45px;
-  }
 }
 
 @media (max-width: 600px) {
@@ -622,6 +696,10 @@ h2 {
 
   .brand-image {
     height: 38px;
+  }
+
+  .footer-logo {
+    height: 36px;
   }
 
   .hero {
@@ -661,6 +739,152 @@ h2 {
     flex-direction: column;
     align-items: flex-start;
   }
+}
+
+@media (max-width: 430px) {
+  .container {
+    width: min(100% - 28px, var(--container-width));
+  }
+
+  .brand {
+    gap: 9px;
+  }
+
+  .brand-image {
+    height: 36px;
+  }
+
+  .brand-name {
+    font-size: 0.92rem;
+    white-space: nowrap;
+  }
+
+  .menu-toggle {
+    width: 42px;
+    height: 42px;
+  }
+
+  .main-nav {
+    padding: 22px 14px 30px;
+  }
+
+  .main-nav a {
+    padding: 13px 0;
+    font-size: 1rem;
+  }
+
+  .hero {
+    min-height: 620px;
+    padding-top: calc(var(--header-height) + 54px);
+    padding-bottom: 48px;
+  }
+
+  .hero::before {
+    right: -30%;
+    width: 64%;
+  }
+
+  .eyebrow {
+    margin-bottom: 15px;
+    font-size: 0.7rem;
+    line-height: 1.45;
+  }
+
+  h1 {
+    margin-bottom: 18px;
+    font-size: clamp(3.1rem, 17vw, 4.5rem);
+    line-height: 0.92;
+  }
+
+  .hero-subtitle {
+    margin-bottom: 30px;
+    font-size: 1.05rem;
+    line-height: 1.55;
+  }
+
+  .hero-actions {
+    gap: 11px;
+  }
+
+  .button {
+    min-height: 50px;
+    padding-inline: 18px;
+  }
+
+  .section {
+    padding: 68px 0;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 10.5vw, 2.75rem);
+  }
+
+  .about-intro h2 {
+    margin-bottom: 22px;
+  }
+
+  .about-intro {
+    margin-bottom: 32px;
+  }
+
+  .about-intro .section-copy,
+  .section-heading > p:last-child {
+    font-size: 1rem;
+  }
+
+  .about-values {
+    gap: 10px;
+  }
+
+  .value-card {
+    min-height: 0;
+    padding: 18px;
+  }
+
+  .section-heading {
+    margin-bottom: 36px;
+  }
+
+  .cards {
+    gap: 14px;
+  }
+
+  .achievement-cards {
+    gap: 14px;
+  }
+
+  .contact-heading {
+    margin-bottom: 32px;
+  }
+
+  .contact-cards {
+    gap: 12px;
+  }
+
+  .contact-card {
+    min-height: 0;
+    padding: 22px;
+  }
+
+  .contact-cta {
+    margin-top: 28px;
+    padding-top: 24px;
+    font-size: 1rem;
+  }
+
+  .training-card {
+    padding: 22px;
+  }
+
+  .achievement-card {
+    min-height: 0;
+    padding: 22px;
+  }
+
+  .achievement-accent {
+    margin-bottom: 30px;
+  }
+
 }
 
 @media (prefers-reduced-motion: reduce) {
