@@ -443,6 +443,156 @@ h2 {
   color: var(--color-muted);
 }
 
+.coaches-section {
+  background: var(--color-bg);
+}
+
+.coach-cards {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.coach-card {
+  display: flex;
+  height: 100%;
+  min-width: 0;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-soft);
+  border-radius: var(--radius);
+}
+
+.coach-photo-placeholder {
+  position: relative;
+  display: grid;
+  height: 230px;
+  flex: 0 0 230px;
+  place-items: center;
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-border);
+  background:
+    linear-gradient(135deg, transparent 35%, var(--color-lime-faint) 35.2%, transparent 65%),
+    linear-gradient(145deg, var(--color-surface), var(--color-bg-soft));
+}
+
+.coach-photo-placeholder::after {
+  position: absolute;
+  right: -12%;
+  bottom: 24px;
+  left: 12%;
+  height: 1px;
+  content: "";
+  background: linear-gradient(90deg, transparent, var(--color-lime-soft), transparent);
+  box-shadow:
+    18px 12px 0 var(--color-lime-faint),
+    36px 24px 0 var(--color-lime-faint);
+  transform: rotate(-7deg);
+}
+
+.coach-photo-placeholder span {
+  position: relative;
+  z-index: 1;
+  color: var(--color-muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.coach-photo {
+  height: 230px;
+  flex: 0 0 230px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-border);
+  background:
+    radial-gradient(circle at 50% 92%, var(--color-green-glow-soft), transparent 48%),
+    linear-gradient(180deg, var(--color-surface), var(--color-bg-soft));
+}
+
+.coach-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+.coach-card-content {
+  display: grid;
+  min-width: 0;
+  padding: 18px 16px;
+  flex: 1;
+  grid-template-rows: 2.7em 82px;
+  gap: 12px;
+  align-content: start;
+}
+
+.coach-card h3 {
+  margin: 0;
+  font-size: 1.08rem;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.coach-roles {
+  display: flex;
+  min-height: 0;
+  margin: 0;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+.coach-roles span {
+  display: inline-flex;
+  min-height: 23px;
+  padding: 3px 7px;
+  align-items: center;
+  color: var(--color-lime);
+  background: var(--color-lime-faint);
+  border: 1px solid var(--color-lime-soft);
+  border-radius: 999px;
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.coach-description {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.coach-description[hidden] {
+  display: none;
+}
+
+@media (max-width: 1100px) {
+  .coach-cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .coach-card-content {
+    padding: 22px;
+    grid-template-rows: 3.05em 58px;
+  }
+
+  .coach-card h3 {
+    font-size: 1.22rem;
+  }
+
+  .coach-roles span {
+    padding-inline: 9px;
+    font-size: 0.7rem;
+  }
+}
+
 .achievement-section {
   background:
     linear-gradient(var(--color-bg-overlay), var(--color-bg-overlay)),
@@ -666,6 +816,10 @@ h2 {
     grid-template-columns: 1fr;
   }
 
+  .coach-cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .contact-cards {
     grid-template-columns: 1fr;
   }
@@ -720,6 +874,21 @@ h2 {
 
   .hero-actions {
     flex-direction: column;
+  }
+
+  .coach-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .coach-photo-placeholder,
+  .coach-photo {
+    height: 220px;
+    flex-basis: 220px;
+  }
+
+  .coach-card-content {
+    grid-template-rows: auto auto;
+    gap: 10px;
   }
 
   .button {
@@ -851,6 +1020,45 @@ h2 {
 
   .achievement-cards {
     gap: 14px;
+  }
+
+  .coach-cards {
+    gap: 12px;
+  }
+
+  .coach-photo-placeholder {
+    height: 205px;
+    min-height: 0;
+    flex-basis: 205px;
+  }
+
+  .coach-photo {
+    height: 205px;
+    flex-basis: 205px;
+  }
+
+  .coach-card-content {
+    min-width: 0;
+    padding: 20px;
+    grid-template-rows: auto auto;
+    gap: 10px;
+  }
+
+  .coach-card h3 {
+    font-size: 1.2rem;
+    overflow-wrap: anywhere;
+  }
+
+  .coach-roles {
+    gap: 6px;
+  }
+
+  .coach-roles span {
+    min-height: 24px;
+    padding: 3px 8px;
+    font-size: 0.7rem;
+    line-height: 1.25;
+    text-align: center;
   }
 
   .contact-heading {
