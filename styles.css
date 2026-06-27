@@ -654,32 +654,68 @@ h2 {
 }
 
 .contact-heading {
-  max-width: 720px;
-  margin-bottom: 42px;
+  max-width: 1160px;
+  margin: 0 auto 42px;
 }
 
 .contact-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  max-width: 1160px;
+  margin-inline: auto;
   gap: 20px;
 }
 
 .contact-card {
-  min-height: 140px;
-  padding: 26px;
+  display: flex;
+  min-height: 96px;
+  padding: 24px 26px;
+  align-items: center;
   border: 1px solid var(--color-border);
   background: var(--color-surface);
   border-radius: var(--radius);
 }
 
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
 .contact-card span {
-  display: block;
+  display: flex;
   margin-bottom: 18px;
+  align-items: center;
+  gap: 9px;
   color: var(--color-lime);
   font-size: 0.74rem;
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+.contact-card svg,
+.social-link svg {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  color: var(--color-lime);
+}
+
+.contact-card svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.contact-item svg {
+  width: 24px;
+  height: 24px;
+  flex-basis: 24px;
 }
 
 .contact-card p,
@@ -688,10 +724,11 @@ h2 {
   color: var(--color-text);
   font-size: 1.08rem;
   font-weight: 700;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
 }
 
 .contact-card a {
-  overflow-wrap: anywhere;
   transition: color var(--transition);
 }
 
@@ -703,16 +740,19 @@ h2 {
 .social-links {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-  margin-top: 18px;
+  width: 100%;
+  max-width: 1160px;
+  gap: 20px;
+  margin: 18px auto 0;
 }
 
 .social-link {
   display: flex;
   min-height: 58px;
-  padding: 14px 18px;
+  padding: 14px 26px;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  gap: 12px;
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   background: rgba(11, 23, 16, 0.72);
@@ -720,12 +760,25 @@ h2 {
   font-size: 0.92rem;
   font-weight: 800;
   letter-spacing: 0.02em;
-  text-align: center;
+  text-align: left;
   text-decoration: none;
   transition:
     border-color var(--transition),
     color var(--transition),
     transform var(--transition);
+}
+
+.social-link svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.social-link:nth-child(2) svg {
+  fill: currentColor;
+  stroke: none;
 }
 
 .social-link:hover,
@@ -736,8 +789,8 @@ h2 {
 }
 
 .contact-cta {
-  max-width: 850px;
-  margin: 34px 0 0;
+  max-width: 1160px;
+  margin: 34px auto 0;
   padding-top: 28px;
   border-top: 1px solid var(--color-border);
   color: var(--color-text);
@@ -1110,13 +1163,13 @@ h2 {
   }
 
   .social-links {
-    gap: 10px;
+    gap: 12px;
     margin-top: 14px;
   }
 
   .social-link {
     min-height: 54px;
-    padding: 13px 16px;
+    padding: 14px 22px;
   }
 
   .contact-card {
