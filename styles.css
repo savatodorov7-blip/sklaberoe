@@ -341,17 +341,34 @@ h2 {
 }
 
 .about-intro h2 {
-  margin-bottom: 26px;
+  margin-bottom: 0;
 }
 
 .about-intro {
-  max-width: 850px;
-  margin-bottom: 44px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(420px, 0.92fr);
+  gap: 48px;
+  margin-bottom: 46px;
+  align-items: start;
 }
 
 .about-intro .section-copy {
-  max-width: 800px;
-  margin-bottom: 0;
+  margin: 0;
+  max-width: 620px;
+  line-height: 1.72;
+  text-align: left;
+}
+
+.about-intro-card {
+  position: relative;
+  align-self: end;
+  padding: 24px 26px 24px 28px;
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-lime);
+  background:
+    linear-gradient(135deg, rgba(0, 168, 79, 0.08), transparent 56%),
+    rgba(7, 17, 12, 0.72);
+  border-radius: var(--radius);
 }
 
 .about-values {
@@ -900,6 +917,12 @@ h2 {
     gap: 34px;
   }
 
+  .about-intro {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+
   .cards {
     grid-template-columns: 1fr;
   }
@@ -1082,11 +1105,15 @@ h2 {
   }
 
   .about-intro h2 {
-    margin-bottom: 22px;
+    margin-bottom: 0;
   }
 
   .about-intro {
     margin-bottom: 32px;
+  }
+
+  .about-intro-card {
+    padding: 20px 20px 20px 22px;
   }
 
   .about-intro .section-copy,
