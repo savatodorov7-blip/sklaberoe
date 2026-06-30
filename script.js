@@ -250,6 +250,19 @@ function closeGalleryAlbum() {
   closeLightbox();
 }
 
+function resetGalleryToOverview() {
+  if (!galleryOverview || !galleryDetail) {
+    closeLightbox();
+    activeGalleryAlbum = null;
+    return;
+  }
+
+  galleryDetail.hidden = true;
+  galleryOverview.hidden = false;
+  activeGalleryAlbum = null;
+  closeLightbox();
+}
+
 function updateLightboxImage() {
   if (
     !activeGalleryAlbum ||
@@ -339,6 +352,8 @@ hashLinks.forEach((link) => {
     }
 
     event.preventDefault();
+
+    resetGalleryToOverview();
     setActiveNavigation(targetSection.id);
     scrollToSection(targetSection);
     history.pushState(null, "", link.getAttribute("href"));
