@@ -76,6 +76,7 @@
         <a href="#za-kluba">За клуба</a>
         <a href="#trenirovki">Тренировки</a>
         <a href="#trenyori">Треньори</a>
+        <a href="#galeriya">Галерия</a>
         <a href="#kontakti">Контакти</a>
       </nav>
     </div>
@@ -347,6 +348,34 @@
       </div>
     </section>
 
+    <section class="section gallery-section" id="galeriya">
+      <div class="container">
+        <div class="gallery-intro">
+          <p class="section-label">Галерия</p>
+          <h2>Моменти от тренировките и състезанията</h2>
+          <p>
+            Кадри от тренировъчния процес, състезанията и клубната среда на
+            СКЛА Берое.
+          </p>
+        </div>
+
+        <div class="gallery-overview" data-gallery-overview>
+          <div class="gallery-albums" data-gallery-albums></div>
+        </div>
+
+        <div class="gallery-detail" data-gallery-detail hidden>
+          <button class="gallery-back" type="button" data-gallery-back>
+            ← Обратно към галериите
+          </button>
+          <div class="gallery-album-heading">
+            <h3 data-gallery-title></h3>
+            <p data-gallery-subtitle></p>
+          </div>
+          <div class="gallery-grid" data-gallery-images></div>
+        </div>
+      </div>
+    </section>
+
     <section class="section achievement-section" id="postizheniya" hidden>
       <div class="container">
         <div class="section-heading">
@@ -495,5 +524,36 @@
       <p>&copy; 2026 СКЛА Берое. Всички права запазени.</p>
     </div>
   </footer>
+
+  <div class="gallery-lightbox" data-gallery-lightbox hidden>
+    <button
+      class="gallery-lightbox-close"
+      type="button"
+      aria-label="Затвори снимката"
+      data-lightbox-close
+    >
+      ×
+    </button>
+    <button
+      class="gallery-lightbox-nav gallery-lightbox-prev"
+      type="button"
+      aria-label="Предишна снимка"
+      data-lightbox-prev
+    >
+      ←
+    </button>
+    <figure class="gallery-lightbox-content">
+      <img src="" alt="" data-lightbox-image>
+      <figcaption data-lightbox-counter></figcaption>
+    </figure>
+    <button
+      class="gallery-lightbox-nav gallery-lightbox-next"
+      type="button"
+      aria-label="Следваща снимка"
+      data-lightbox-next
+    >
+      →
+    </button>
+  </div>
 </body>
 </html>
