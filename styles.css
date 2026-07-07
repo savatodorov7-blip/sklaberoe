@@ -480,12 +480,14 @@ h2 {
   min-height: 240px;
   padding: 34px;
   border: 1px solid var(--color-border);
+  border-color: var(--color-border);
   background: var(--color-surface);
   border-radius: var(--radius);
   transition: border-color var(--transition), transform var(--transition);
 }
 
-.training-card:hover {
+.training-card:hover,
+.training-card:focus-within {
   border-color: var(--color-lime-border);
   transform: translateY(-6px);
 }
@@ -515,6 +517,58 @@ h2 {
 .training-card p {
   margin-bottom: 0;
   color: var(--color-muted);
+}
+
+.training-cta {
+  display: flex;
+  margin-top: 24px;
+  padding: 22px 24px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-lime);
+  border-radius: var(--radius);
+  background: rgba(11, 23, 16, 0.72);
+}
+
+.training-cta h3 {
+  margin-bottom: 6px;
+  color: var(--color-text);
+  font-size: 1.15rem;
+}
+
+.training-cta p {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+.training-cta-button {
+  display: inline-flex;
+  min-height: 46px;
+  padding: 0 18px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-lime-border);
+  border-radius: 8px;
+  color: var(--color-lime);
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition:
+    border-color var(--transition),
+    color var(--transition),
+    background var(--transition);
+}
+
+.training-cta-button:hover,
+.training-cta-button:focus-visible {
+  border-color: var(--color-lime);
+  background: var(--color-lime-faint);
+  color: var(--color-text);
 }
 
 .coaches-section {
@@ -1054,6 +1108,15 @@ h2 {
   border: 1px solid var(--color-border);
   background: var(--color-surface);
   border-radius: var(--radius);
+  transition:
+    border-color var(--transition),
+    background var(--transition);
+}
+
+.contact-card:hover,
+.contact-card:focus-within {
+  border-color: var(--color-lime-border);
+  background: rgba(11, 23, 16, 0.9);
 }
 
 .contact-item {
@@ -1317,6 +1380,11 @@ h2 {
 
   .training-card {
     min-height: 0;
+  }
+
+  .training-cta {
+    align-items: flex-start;
+    flex-direction: column;
   }
 
 }
@@ -1657,6 +1725,14 @@ h2 {
 
   .training-card {
     padding: 22px;
+  }
+
+  .training-cta {
+    padding: 20px;
+  }
+
+  .training-cta-button {
+    width: 100%;
   }
 
   .achievement-card {
