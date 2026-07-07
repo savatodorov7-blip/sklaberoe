@@ -1416,9 +1416,9 @@ h2 {
   }
 
   .hero {
-    min-height: 680px;
+    min-height: 600px;
     padding-top: calc(var(--header-height) + 70px);
-    padding-bottom: 54px;
+    padding-bottom: 34px;
   }
 
   h1 {
@@ -1437,6 +1437,15 @@ h2 {
 
   .coach-cards {
     grid-template-columns: 1fr;
+  }
+
+  .about-values {
+    gap: 12px;
+  }
+
+  .value-card {
+    min-height: 0;
+    padding: 20px;
   }
 
   .gallery-albums,
@@ -1463,7 +1472,30 @@ h2 {
     padding: 80px 0;
   }
 
-  .training-card,
+  #trenirovki {
+    padding-bottom: 58px;
+  }
+
+  #trenirovki .section-heading {
+    margin-bottom: 32px;
+  }
+
+  #trenirovki .cards {
+    gap: 12px;
+  }
+
+  .training-card {
+    padding: 24px;
+  }
+
+  .training-card h3 {
+    margin-bottom: 8px;
+  }
+
+  .training-age {
+    margin-bottom: 14px;
+  }
+
   .contact-details {
     padding: 26px;
   }
@@ -1507,9 +1539,9 @@ h2 {
   }
 
   .hero {
-    min-height: 620px;
+    min-height: 560px;
     padding-top: calc(var(--header-height) + 54px);
-    padding-bottom: 48px;
+    padding-bottom: 28px;
   }
 
   .hero-content::after {
@@ -1552,6 +1584,10 @@ h2 {
     padding: 68px 0;
   }
 
+  #trenirovki {
+    padding-bottom: 48px;
+  }
+
   h2 {
     font-size: clamp(2rem, 10.5vw, 2.75rem);
   }
@@ -1582,12 +1618,15 @@ h2 {
   }
 
   .about-values {
-    gap: 10px;
+    gap: 8px;
   }
 
   .value-card {
-    min-height: 0;
-    padding: 18px;
+    padding: 16px;
+  }
+
+  .value-card h3 {
+    margin-bottom: 8px;
   }
 
   .section-heading {
@@ -1766,10 +1805,19 @@ h2 {
   }
 
   .training-card {
-    padding: 22px;
+    padding: 20px;
+  }
+
+  #trenirovki .section-heading {
+    margin-bottom: 28px;
+  }
+
+  #trenirovki .cards {
+    gap: 10px;
   }
 
   .training-cta {
+    margin-top: 18px;
     padding: 20px;
   }
 
