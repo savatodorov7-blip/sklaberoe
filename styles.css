@@ -256,11 +256,11 @@ h3 {
 
 .eyebrow,
 .section-label {
-  margin-bottom: 18px;
+  margin-bottom: 16px;
   color: var(--color-lime);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 800;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
 }
 
@@ -369,8 +369,9 @@ h2 {
   max-width: 680px;
   margin-bottom: 0;
   font-size: clamp(2.25rem, 5vw, 4.25rem);
-  line-height: 1.06;
-  letter-spacing: -0.045em;
+  line-height: 1.02;
+  letter-spacing: -0.05em;
+  text-wrap: balance;
 }
 
 .section-copy,
@@ -1580,6 +1581,12 @@ h2 {
     padding-inline: 18px;
   }
 
+  .section-label {
+    margin-bottom: 14px;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+  }
+
   .section {
     padding: 68px 0;
   }
@@ -1589,7 +1596,9 @@ h2 {
   }
 
   h2 {
-    font-size: clamp(2rem, 10.5vw, 2.75rem);
+    font-size: clamp(1.9rem, 9.2vw, 2.55rem);
+    line-height: 1.04;
+    letter-spacing: -0.045em;
   }
 
   .about-intro h2 {
