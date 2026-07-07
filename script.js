@@ -9,6 +9,7 @@ const galleryOverview = document.querySelector("[data-gallery-overview]");
 const galleryAlbumsContainer = document.querySelector("[data-gallery-albums]");
 const galleryDetail = document.querySelector("[data-gallery-detail]");
 const galleryBackButton = document.querySelector("[data-gallery-back]");
+const galleryStickyBackButton = document.querySelector("[data-gallery-sticky-back]");
 const galleryTitle = document.querySelector("[data-gallery-title]");
 const gallerySubtitle = document.querySelector("[data-gallery-subtitle]");
 const galleryImagesContainer = document.querySelector("[data-gallery-images]");
@@ -192,7 +193,8 @@ function renderGalleryAlbums() {
   });
 }
 
-function openGalleryAlbum(albumId) {
+function openGalleryAlbum(albumId, options = {}) {
+  const { updateHistory = true, scroll = true } = options;
   const album = galleryAlbums.find((galleryAlbum) => galleryAlbum.id === albumId);
 
   if (
@@ -224,28 +226,37 @@ function openGalleryAlbum(albumId) {
   galleryDetail.hidden = false;
   setActiveNavigation("galeriya");
 
-  if (gallerySection) {
-    scrollToSection(gallerySection);
+  activeGalleryAlbum = album;
+
+  if (updateHistory) {
+    history.pushState({ galleryView: "album", albumId: album.id }, "", "#galeriya");
   }
 
-  activeGalleryAlbum = album;
+  if (scroll && gallerySection) {
+    scrollToSection(gallerySection);
+  }
 }
 
-function closeGalleryAlbum() {
+function closeGalleryAlbum(options = {}) {
+  const { updateHistory = true, scroll = true } = options;
   if (!galleryOverview || !galleryDetail) {
     return;
   }
 
+  closeLightbox({ updateHistory: false });
   galleryDetail.hidden = true;
   galleryOverview.hidden = false;
   setActiveNavigation("galeriya");
 
-  if (gallerySection) {
-    scrollToSection(gallerySection);
+  activeGalleryAlbum = null;
+
+  if (updateHistory) {
+    history.replaceState(null, "", "#galeriya");
   }
 
-  activeGalleryAlbum = null;
-  closeLightbox();
+  if (scroll && gallerySection) {
+    scrollToSection(gallerySection);
+  }
 }
 
 function resetGalleryToOverview() {
@@ -258,7 +269,7 @@ function resetGalleryToOverview() {
   galleryDetail.hidden = true;
   galleryOverview.hidden = false;
   activeGalleryAlbum = null;
-  closeLightbox();
+  closeLightbox({ updateHistory: false });
 }
 
 function updateLightboxImage() {
@@ -280,7 +291,8 @@ function updateLightboxImage() {
   }`;
 }
 
-function openLightbox(imageIndex) {
+function openLightbox(imageIndex, options = {}) {
+  const { updateHistory = true } = options;
   if (!activeGalleryAlbum || !galleryLightbox) {
     return;
   }
@@ -290,15 +302,46 @@ function openLightbox(imageIndex) {
   galleryLightbox.hidden = false;
   document.body.classList.add("lightbox-open");
   lightboxCloseButton?.focus();
+
+  if (updateHistory) {
+    history.pushState(
+      {
+        galleryView: "lightbox",
+        albumId: activeGalleryAlbum.id,
+        imageIndex: activeLightboxIndex,
+      },
+      "",
+      "#galeriya"
+    );
+  }
 }
 
-function closeLightbox() {
+function closeLightbox(options = {}) {
+  const { updateHistory = false } = options;
   if (!galleryLightbox) {
     return;
   }
 
+  const wasOpen = !galleryLightbox.hidden;
   galleryLightbox.hidden = true;
   document.body.classList.remove("lightbox-open");
+
+  if (wasOpen && updateHistory && activeGalleryAlbum) {
+    history.replaceState(
+      { galleryView: "album", albumId: activeGalleryAlbum.id },
+      "",
+      "#galeriya"
+    );
+  }
+}
+
+function closeLightboxFromUser() {
+  if (history.state?.galleryView === "lightbox") {
+    history.back();
+    return;
+  }
+
+  closeLightbox({ updateHistory: false });
 }
 
 function showPreviousImage() {
@@ -351,9 +394,16 @@ hashLinks.forEach((link) => {
 
     event.preventDefault();
 
+    const wasGalleryHistoryState = Boolean(history.state?.galleryView);
+
     resetGalleryToOverview();
     setActiveNavigation(targetSection.id);
     scrollToSection(targetSection);
+
+    if (wasGalleryHistoryState) {
+      history.replaceState(null, "", "#galeriya");
+    }
+
     history.pushState(null, "", link.getAttribute("href"));
 
     if (navigation.classList.contains("is-open")) {
@@ -372,7 +422,8 @@ galleryAlbumsContainer?.addEventListener("click", (event) => {
   openGalleryAlbum(albumCard.dataset.albumId);
 });
 
-galleryBackButton?.addEventListener("click", closeGalleryAlbum);
+galleryBackButton?.addEventListener("click", () => closeGalleryAlbum());
+galleryStickyBackButton?.addEventListener("click", () => closeGalleryAlbum());
 
 galleryImagesContainer?.addEventListener("click", (event) => {
   const imageCard = event.target.closest(".gallery-item");
@@ -384,7 +435,7 @@ galleryImagesContainer?.addEventListener("click", (event) => {
   openLightbox(Number(imageCard.dataset.imageIndex));
 });
 
-lightboxCloseButton?.addEventListener("click", closeLightbox);
+lightboxCloseButton?.addEventListener("click", closeLightboxFromUser);
 lightboxPrevButton?.addEventListener("click", showPreviousImage);
 lightboxNextButton?.addEventListener("click", showNextImage);
 
@@ -394,7 +445,7 @@ galleryLightbox?.addEventListener("click", (event) => {
     !event.target.closest("button");
 
   if (event.target === galleryLightbox || clickedOutsideImage) {
-    closeLightbox();
+    closeLightboxFromUser();
   }
 });
 
@@ -405,7 +456,7 @@ document.addEventListener("keydown", (event) => {
 
   if (event.key === "Escape") {
     event.preventDefault();
-    closeLightbox();
+    closeLightboxFromUser();
   }
 
   if (event.key === "ArrowLeft") {
@@ -416,6 +467,40 @@ document.addEventListener("keydown", (event) => {
   if (event.key === "ArrowRight") {
     event.preventDefault();
     showNextImage();
+  }
+});
+
+window.addEventListener("popstate", (event) => {
+  const galleryState = event.state?.galleryView;
+
+  if (galleryState === "lightbox") {
+    const albumId = event.state.albumId;
+    const imageIndex = Number(event.state.imageIndex) || 0;
+
+    if (!activeGalleryAlbum || activeGalleryAlbum.id !== albumId) {
+      openGalleryAlbum(albumId, { updateHistory: false, scroll: false });
+    }
+
+    openLightbox(imageIndex, { updateHistory: false });
+    return;
+  }
+
+  if (galleryLightbox && !galleryLightbox.hidden) {
+    closeLightbox({ updateHistory: false });
+  }
+
+  if (galleryState === "album") {
+    const albumId = event.state.albumId;
+
+    if (!activeGalleryAlbum || activeGalleryAlbum.id !== albumId) {
+      openGalleryAlbum(albumId, { updateHistory: false, scroll: false });
+    }
+
+    return;
+  }
+
+  if (activeGalleryAlbum) {
+    closeGalleryAlbum({ updateHistory: false, scroll: true });
   }
 });
 
