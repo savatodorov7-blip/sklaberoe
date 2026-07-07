@@ -297,6 +297,14 @@ h1 {
   background: var(--color-lime-hover);
 }
 
+.hero-actions .button-primary {
+  min-height: 56px;
+  padding-inline: 30px;
+  border-radius: 9px;
+  box-shadow: 0 0 28px rgba(167, 233, 47, 0.18);
+  font-weight: 900;
+}
+
 .button-secondary {
   border-color: var(--color-border);
   background: var(--color-white-faint);
@@ -419,6 +427,14 @@ h2 {
 
 .section-heading h2 {
   margin-bottom: 22px;
+}
+
+#trenirovki .section-heading {
+  max-width: 860px;
+}
+
+#trenyori .section-heading {
+  max-width: 960px;
 }
 
 .cards {

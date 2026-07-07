@@ -156,11 +156,14 @@ function createGalleryPlaceholder(label) {
   return placeholder;
 }
 
-function createGalleryImage(src, alt) {
+function createGalleryImage(src, alt, options = {}) {
+  const { loading = "lazy", fetchPriority = "auto" } = options;
   const image = document.createElement("img");
   image.src = src;
   image.alt = alt;
-  image.loading = "lazy";
+  image.loading = loading;
+  image.decoding = "async";
+  image.setAttribute("fetchpriority", fetchPriority);
   image.onerror = () => {
     image.replaceWith(createGalleryPlaceholder("Снимка"));
   };
@@ -218,7 +221,9 @@ function openGalleryAlbum(albumId) {
     const imageCard = document.createElement("article");
     imageCard.className = "gallery-item";
     imageCard.dataset.imageIndex = imageIndex;
-    imageCard.append(createGalleryImage(imageSrc, album.title));
+    imageCard.append(
+      createGalleryImage(imageSrc, album.title, { fetchPriority: "low" })
+    );
     galleryImagesContainer.append(imageCard);
   });
 
