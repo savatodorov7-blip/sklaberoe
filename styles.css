@@ -229,10 +229,29 @@ h3 {
   z-index: 1;
 }
 
+.hero-content::after {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  right: -18%;
+  width: min(38vw, 500px);
+  aspect-ratio: 1;
+  content: "";
+  background: url("./assets/logo-transparent.png") center / contain no-repeat;
+  opacity: 0.03;
+  pointer-events: none;
+  transform: translateY(-48%);
+}
+
 .hero-copy {
   position: relative;
-  z-index: 2;
-  max-width: 920px;
+  z-index: 3;
+  max-width: 1180px;
+}
+
+.hero .eyebrow {
+  color: #c7ff43;
+  text-shadow: 0 0 16px rgba(167, 233, 47, 0.26);
 }
 
 .eyebrow,
@@ -252,6 +271,10 @@ h1 {
   line-height: 0.9;
   letter-spacing: -0.06em;
   text-transform: uppercase;
+}
+
+.hero h1 {
+  max-width: 1180px;
 }
 
 .hero-subtitle {
@@ -298,11 +321,21 @@ h1 {
 }
 
 .hero-actions .button-primary {
-  min-height: 56px;
-  padding-inline: 30px;
-  border-radius: 9px;
-  box-shadow: 0 0 28px rgba(167, 233, 47, 0.18);
+  min-height: 58px;
+  padding-inline: 34px;
+  border-radius: 10px;
+  background: #b9ff2f;
+  box-shadow:
+    0 0 0 1px rgba(167, 233, 47, 0.32),
+    0 0 34px rgba(167, 233, 47, 0.26);
   font-weight: 900;
+}
+
+.hero-actions .button-primary:hover {
+  background: #c7ff43;
+  box-shadow:
+    0 0 0 1px rgba(199, 255, 67, 0.38),
+    0 0 40px rgba(167, 233, 47, 0.32);
 }
 
 .button-secondary {
@@ -1235,6 +1268,10 @@ h2 {
     max-width: 760px;
   }
 
+  .hero-content::after {
+    display: none;
+  }
+
   .hero::before {
     right: -8%;
     width: 42%;
@@ -1401,6 +1438,10 @@ h2 {
     min-height: 620px;
     padding-top: calc(var(--header-height) + 54px);
     padding-bottom: 48px;
+  }
+
+  .hero-content::after {
+    display: none;
   }
 
   .hero::before {
