@@ -86,6 +86,21 @@ const galleryAlbums = [
       "./assets/gallery/U18/u18-33.jpg",
     ],
   },
+  {
+    id: "balkan-championship-u18",
+    title: "Балкански шампионат U18",
+    subtitle: "04.07.2026",
+    cover: "./assets/gallery/БШ18/bc18-01.jpg",
+    images: [
+      "./assets/gallery/БШ18/bc18-01.jpg",
+      "./assets/gallery/БШ18/bc18-02.jpg",
+      "./assets/gallery/БШ18/bc18-03.jpg",
+      "./assets/gallery/БШ18/bc18-04.jpg",
+      "./assets/gallery/БШ18/bc18-05.jpg",
+      "./assets/gallery/БШ18/bc18-06.jpg",
+      "./assets/gallery/БШ18/bc18-07.jpg",
+    ],
+  },
 ];
 
 function getHeaderOffset() {
