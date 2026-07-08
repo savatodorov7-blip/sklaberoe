@@ -29,7 +29,7 @@ const galleryAlbums = [
   {
     id: "u20-national-championship",
     title: "Национален шампионат U20",
-    subtitle: "Юноши и девойки под 20 години",
+    subtitle: "Подрастващи под 20 години",
     cover: "./assets/gallery/U20/u20-01.jpg",
     images: [
       "./assets/gallery/U20/u20-01.jpg",
@@ -55,7 +55,7 @@ const galleryAlbums = [
   {
     id: "u18-national-championship",
     title: "Национален шампионат U18",
-    subtitle: "Юноши и девойки под 18 години",
+    subtitle: "Подрастващи под 18 години",
     cover: "./assets/gallery/U18/u18-01.jpg",
     images: [
       "./assets/gallery/U18/u18-01.jpg",
