@@ -101,6 +101,29 @@ const galleryAlbums = [
       "./assets/gallery/U18/u18-33.jpg",
     ],
   },
+  {
+    id: "kids-day",
+    title: "Ден на детето",
+    subtitle: "01.06.2026",
+    cover: "./assets/gallery/KIDS1/_MIC2734.jpg",
+    images: [
+      "./assets/gallery/KIDS1/_MIC2734.jpg",
+      "./assets/gallery/KIDS1/_MIC2750.jpg",
+      "./assets/gallery/KIDS1/_MIC2796.jpg",
+      "./assets/gallery/KIDS1/_MIC2812.jpg",
+      "./assets/gallery/KIDS1/_MIC2867.jpg",
+      "./assets/gallery/KIDS1/_MIC2958.jpg",
+      "./assets/gallery/KIDS1/_MIC2969.jpg",
+      "./assets/gallery/KIDS1/_MIC2996.jpg",
+      "./assets/gallery/KIDS1/_MIC3060.jpg",
+      "./assets/gallery/KIDS1/_MIC3083.jpg",
+      "./assets/gallery/KIDS1/_MIC3096.jpg",
+      "./assets/gallery/KIDS1/_MIC3105.jpg",
+      "./assets/gallery/KIDS1/_MIC3119.jpg",
+      "./assets/gallery/KIDS1/_MIC3146.jpg",
+      "./assets/gallery/KIDS1/_MIC3160.jpg",
+    ],
+  },
 ];
 
 function getHeaderOffset() {
