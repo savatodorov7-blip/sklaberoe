@@ -273,13 +273,16 @@ h1 {
 
 .hero h1 {
   max-width: 1180px;
+  margin-bottom: 14px;
 }
 
 .hero-subtitle {
   max-width: 760px;
-  margin-bottom: 38px;
+  margin-bottom: 24px;
   color: var(--color-muted);
-  font-size: clamp(1.15rem, 2.2vw, 1.5rem);
+  font-size: clamp(1.25rem, 2.25vw, 1.62rem);
+  font-weight: 500;
+  line-height: 1.35;
 }
 
 .hero-actions {
@@ -1671,9 +1674,9 @@ h2 {
   }
 
   .hero-subtitle {
-    margin-bottom: 30px;
-    font-size: 1.05rem;
-    line-height: 1.55;
+    margin-bottom: 22px;
+    font-size: 1.12rem;
+    line-height: 1.4;
   }
 
   .hero-actions {
