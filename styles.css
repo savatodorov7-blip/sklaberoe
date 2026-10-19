@@ -571,42 +571,109 @@ h2 {
 }
 
 .training-cta {
+  position: relative;
+  isolation: isolate;
   display: flex;
   margin-top: 24px;
-  padding: 22px 24px;
+  padding: 32px;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
-  border: 1px solid var(--color-border);
-  border-left: 3px solid var(--color-lime);
+  gap: 28px;
+  overflow: hidden;
+  border: 1px solid var(--color-lime-border);
   border-radius: var(--radius);
-  background: rgba(11, 23, 16, 0.72);
+  background:
+    radial-gradient(ellipse at 0% 50%, rgba(167, 233, 47, 0.12), transparent 55%),
+    linear-gradient(115deg, #10291a, var(--color-bg-soft) 65%, #14271a);
+  box-shadow: inset 0 1px 0 rgba(167, 233, 47, 0.08), 0 10px 32px rgba(0, 168, 79, 0.07);
+}
+
+.training-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: repeating-linear-gradient(120deg, transparent 0 85px, rgba(167, 233, 47, 0.04) 86px 87px, transparent 88px 170px);
+}
+
+.training-cta-visual {
+  display: grid;
+  flex: 0 0 116px;
+  min-height: 142px;
+  padding-right: 24px;
+  place-items: center;
+  border-right: 1px solid rgba(167, 233, 47, 0.24);
+  color: var(--color-lime);
+}
+
+.training-cta-visual svg {
+  width: 104px;
+  max-width: 100%;
+  filter: drop-shadow(0 0 16px rgba(167, 233, 47, 0.22));
+}
+
+.training-cta-visual .runner-motion {
+  stroke: currentColor;
+  stroke-width: 3;
+  stroke-linecap: round;
+  opacity: 0.5;
+}
+
+.training-cta-content {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  min-width: 0;
 }
 
 .training-cta h3 {
-  margin-bottom: 6px;
+  margin: 0 0 8px;
   color: var(--color-text);
-  font-size: 1.15rem;
+  font-size: clamp(1.6rem, 2.5vw, 2.15rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+  overflow: visible;
+  text-decoration: none;
 }
 
 .training-cta p {
   margin: 0;
   color: var(--color-muted);
+  max-width: 72ch;
+  font-size: 0.94rem;
+  line-height: 1.6;
+}
+
+.training-cta .training-cta-label {
+  margin-bottom: 8px;
+  color: var(--color-lime);
+  font-size: 0.72rem;
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .training-cta-button {
   display: inline-flex;
-  min-height: 46px;
-  padding: 0 18px;
+  min-height: 58px;
+  max-width: 100%;
+  padding: 16px 22px;
   flex: 0 0 auto;
   align-items: center;
   justify-content: center;
+  gap: 12px;
   border: 1px solid var(--color-lime-border);
   border-radius: 8px;
-  color: var(--color-lime);
+  color: var(--color-bg);
+  background: var(--color-lime);
+  box-shadow: 0 6px 24px rgba(167, 233, 47, 0.18);
   font-size: 0.82rem;
   font-weight: 900;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.025em;
   text-decoration: none;
   text-transform: uppercase;
   transition:
@@ -617,13 +684,23 @@ h2 {
     transform var(--transition);
 }
 
-.training-cta-button:hover,
 .training-cta-button:focus-visible {
+  outline: 2px solid var(--color-lime);
+  outline-offset: 4px;
+}
+
+.training-cta-button svg {
+  flex: 0 0 22px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .training-cta-button:hover {
   border-color: var(--color-lime);
-  background: var(--color-lime-faint);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
-  color: var(--color-text);
+  background: var(--color-lime);
+  box-shadow: 0 6px 22px rgba(167, 233, 47, 0.2);
+  color: var(--color-bg);
   transform: translateY(-2px);
+  }
 }
 
 .coaches-section {
@@ -1510,6 +1587,17 @@ h2 {
   .training-cta {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .training-cta-visual {
+    flex: 0 0 auto;
+    min-height: 0;
+    padding: 0;
+    border-right: 0;
+  }
+
+  .training-cta-visual svg {
+    width: 76px;
   }
 
 }
