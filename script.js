@@ -138,10 +138,119 @@ async function loadGalleryManifest() {
     }
 
     galleryAlbums = getAlbumsFromManifest(await response.json());
-    renderGalleryAlbums();
+    return true;
   } catch (error) {
     console.warn("Gallery manifest unavailable; using fallback images.", error);
+    return false;
   }
+}
+
+function getGalleryUrl(albumId, imageIndex = null) {
+  const url = new URL(window.location.href);
+  url.searchParams.set("album", albumId);
+
+  if (Number.isInteger(imageIndex)) {
+    url.searchParams.set("image", String(imageIndex + 1));
+  } else {
+    url.searchParams.delete("image");
+  }
+
+  url.hash = "#galeriya";
+  return `${url.pathname}${url.search}${url.hash}`;
+}
+
+function getSectionUrl(hash) {
+  const url = new URL(window.location.href);
+  url.searchParams.delete("album");
+  url.searchParams.delete("image");
+  url.hash = hash;
+
+  return `${url.pathname}${url.search}${url.hash}`;
+}
+
+function getRequestedGalleryState() {
+  const searchParams = new URLSearchParams(window.location.search);
+  const albumId = searchParams.get("album");
+  const imageValue = searchParams.get("image");
+  const imageNumber = imageValue !== null && /^\d+$/.test(imageValue)
+    ? Number(imageValue)
+    : null;
+
+  return {
+    albumId,
+    hasImageParameter: imageValue !== null,
+    imageIndex: imageNumber === null ? null : imageNumber - 1,
+  };
+}
+
+function syncGalleryFromUrl(options = {}) {
+  const { replaceHistory = false, scroll = false } = options;
+  const { albumId, hasImageParameter, imageIndex } =
+    getRequestedGalleryState();
+  const album = galleryAlbums.find(
+    (galleryAlbum) => galleryAlbum.id === albumId
+  );
+  const hasValidImage =
+    album &&
+    Number.isInteger(imageIndex) &&
+    imageIndex >= 0 &&
+    imageIndex < album.images.length;
+
+  if (!album) {
+    resetGalleryToOverview();
+
+    if (replaceHistory && (albumId || hasImageParameter)) {
+      history.replaceState(null, "", getSectionUrl("#galeriya"));
+    }
+
+    if (
+      scroll &&
+      (albumId || hasImageParameter || location.hash === "#galeriya")
+    ) {
+      scrollToSection(gallerySection);
+    }
+
+    return;
+  }
+
+  closeLightbox({ updateHistory: false });
+  openGalleryAlbum(album.id, { updateHistory: false, scroll: false });
+
+  if (hasValidImage) {
+    openLightbox(imageIndex, { updateHistory: false });
+  }
+
+  if (replaceHistory) {
+    const previousState = history.state;
+    const historyState = hasValidImage
+      ? {
+          galleryView: "lightbox",
+          albumId: album.id,
+          imageIndex,
+          returnToAlbum:
+            previousState?.galleryView === "lightbox" &&
+            previousState.albumId === album.id &&
+            Boolean(previousState.returnToAlbum),
+        }
+      : { galleryView: "album", albumId: album.id };
+
+    history.replaceState(
+      historyState,
+      "",
+      getGalleryUrl(album.id, hasValidImage ? imageIndex : null)
+    );
+  }
+
+  if (scroll) {
+    scrollToSection(gallerySection);
+  }
+}
+
+async function initializeGallery() {
+  renderGalleryAlbums();
+  await loadGalleryManifest();
+  renderGalleryAlbums();
+  syncGalleryFromUrl({ replaceHistory: true, scroll: true });
 }
 
 function getHeaderOffset() {
@@ -285,7 +394,11 @@ function openGalleryAlbum(albumId, options = {}) {
   activeGalleryAlbum = album;
 
   if (updateHistory) {
-    history.pushState({ galleryView: "album", albumId: album.id }, "", "#galeriya");
+    history.pushState(
+      { galleryView: "album", albumId: album.id },
+      "",
+      getGalleryUrl(album.id)
+    );
   }
 
   if (scroll && gallerySection) {
@@ -307,7 +420,7 @@ function closeGalleryAlbum(options = {}) {
   activeGalleryAlbum = null;
 
   if (updateHistory) {
-    history.replaceState(null, "", "#galeriya");
+    history.replaceState(null, "", getSectionUrl("#galeriya"));
   }
 
   if (scroll && gallerySection) {
@@ -349,7 +462,13 @@ function updateLightboxImage() {
 
 function openLightbox(imageIndex, options = {}) {
   const { updateHistory = true } = options;
-  if (!activeGalleryAlbum || !galleryLightbox) {
+  if (
+    !activeGalleryAlbum ||
+    !galleryLightbox ||
+    !Number.isInteger(imageIndex) ||
+    imageIndex < 0 ||
+    imageIndex >= activeGalleryAlbum.images.length
+  ) {
     return;
   }
 
@@ -365,9 +484,10 @@ function openLightbox(imageIndex, options = {}) {
         galleryView: "lightbox",
         albumId: activeGalleryAlbum.id,
         imageIndex: activeLightboxIndex,
+        returnToAlbum: true,
       },
       "",
-      "#galeriya"
+      getGalleryUrl(activeGalleryAlbum.id, activeLightboxIndex)
     );
   }
 }
@@ -386,18 +506,45 @@ function closeLightbox(options = {}) {
     history.replaceState(
       { galleryView: "album", albumId: activeGalleryAlbum.id },
       "",
-      "#galeriya"
+      getGalleryUrl(activeGalleryAlbum.id)
     );
   }
 }
 
 function closeLightboxFromUser() {
-  if (history.state?.galleryView === "lightbox") {
+  if (
+    history.state?.galleryView === "lightbox" &&
+    history.state.returnToAlbum
+  ) {
     history.back();
     return;
   }
 
-  closeLightbox({ updateHistory: false });
+  closeLightbox({ updateHistory: true });
+}
+
+function replaceLightboxHistory() {
+  if (
+    !activeGalleryAlbum ||
+    !galleryLightbox ||
+    galleryLightbox.hidden
+  ) {
+    return;
+  }
+
+  const previousState = history.state;
+  history.replaceState(
+    {
+      galleryView: "lightbox",
+      albumId: activeGalleryAlbum.id,
+      imageIndex: activeLightboxIndex,
+      returnToAlbum:
+        previousState?.galleryView === "lightbox" &&
+        Boolean(previousState.returnToAlbum),
+    },
+    "",
+    getGalleryUrl(activeGalleryAlbum.id, activeLightboxIndex)
+  );
 }
 
 function showPreviousImage() {
@@ -409,6 +556,7 @@ function showPreviousImage() {
     (activeLightboxIndex - 1 + activeGalleryAlbum.images.length) %
     activeGalleryAlbum.images.length;
   updateLightboxImage();
+  replaceLightboxHistory();
 }
 
 function showNextImage() {
@@ -419,6 +567,7 @@ function showNextImage() {
   activeLightboxIndex =
     (activeLightboxIndex + 1) % activeGalleryAlbum.images.length;
   updateLightboxImage();
+  replaceLightboxHistory();
 }
 
 function closeMenu() {
@@ -450,17 +599,14 @@ hashLinks.forEach((link) => {
 
     event.preventDefault();
 
-    const wasGalleryHistoryState = Boolean(history.state?.galleryView);
-
     resetGalleryToOverview();
     setActiveNavigation(targetSection.id);
     scrollToSection(targetSection);
-
-    if (wasGalleryHistoryState) {
-      history.replaceState(null, "", "#galeriya");
-    }
-
-    history.pushState(null, "", link.getAttribute("href"));
+    history.pushState(
+      null,
+      "",
+      getSectionUrl(link.getAttribute("href"))
+    );
 
     if (navigation.classList.contains("is-open")) {
       closeMenu();
@@ -526,38 +672,8 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-window.addEventListener("popstate", (event) => {
-  const galleryState = event.state?.galleryView;
-
-  if (galleryState === "lightbox") {
-    const albumId = event.state.albumId;
-    const imageIndex = Number(event.state.imageIndex) || 0;
-
-    if (!activeGalleryAlbum || activeGalleryAlbum.id !== albumId) {
-      openGalleryAlbum(albumId, { updateHistory: false, scroll: false });
-    }
-
-    openLightbox(imageIndex, { updateHistory: false });
-    return;
-  }
-
-  if (galleryLightbox && !galleryLightbox.hidden) {
-    closeLightbox({ updateHistory: false });
-  }
-
-  if (galleryState === "album") {
-    const albumId = event.state.albumId;
-
-    if (!activeGalleryAlbum || activeGalleryAlbum.id !== albumId) {
-      openGalleryAlbum(albumId, { updateHistory: false, scroll: false });
-    }
-
-    return;
-  }
-
-  if (activeGalleryAlbum) {
-    closeGalleryAlbum({ updateHistory: false, scroll: true });
-  }
+window.addEventListener("popstate", () => {
+  syncGalleryFromUrl({ scroll: true });
 });
 
 window.addEventListener("resize", () => {
@@ -570,7 +686,6 @@ window.addEventListener("resize", () => {
 
 window.addEventListener("scroll", updateActiveNavigation, { passive: true });
 
-renderGalleryAlbums();
-loadGalleryManifest();
+initializeGallery();
 updateActiveNavigation();
 yearElement.textContent = new Date().getFullYear();
