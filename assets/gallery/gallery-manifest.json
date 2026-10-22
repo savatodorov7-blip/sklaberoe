@@ -1,65 +1,66 @@
 {
-  "version": 1,
-  "albums": [
-    {
-      "id": "kids-athletics",
-      "title": "Детска атлетика",
-      "subtitle": "Моменти от тренировките",
-      "cover": "./assets/gallery/kids-athletics/kids-03.jpg",
-      "images": [
-        "./assets/gallery/kids-athletics/kids-01.jpg",
-        "./assets/gallery/kids-athletics/kids-02.jpg",
-        "./assets/gallery/kids-athletics/kids-03.jpg",
-        "./assets/gallery/kids-athletics/kids-04.jpg"
-      ]
-    },
-    {
-      "id": "training-process",
-      "title": "Тренировъчен процес",
-      "subtitle": "Подготовка и развитие на нашите атлети",
-      "cover": "./assets/gallery/Тренировъчен процес/training-01.jpg",
-      "images": [
-        "./assets/gallery/Тренировъчен процес/training-01.jpg",
-        "./assets/gallery/Тренировъчен процес/training-02.jpg",
-        "./assets/gallery/Тренировъчен процес/training-03.jpg"
-      ]
-    },
-    {
-      "id": "competitions",
-      "title": "Състезания",
-      "subtitle": "Моменти от състезателния сезон",
-      "cover": "./assets/gallery/competitions/competition-01.jpg",
-      "images": [
-        "./assets/gallery/competitions/competition-01.jpg",
-        "./assets/gallery/competitions/competition-02.jpg",
-        "./assets/gallery/competitions/competition-03.jpg",
-        "./assets/gallery/competitions/competition-04.jpg",
-        "./assets/gallery/competitions/competition-05.jpg",
-        "./assets/gallery/competitions/competition-06.jpg",
-        "./assets/gallery/competitions/competition-07.jpg",
-        "./assets/gallery/competitions/competition-08.jpg"
-      ]
-    },
-    {
-      "id": "kids-day",
-      "title": "Клубен живот",
-      "subtitle": "Събития и моменти от живота на клуба",
-      "cover": "./assets/gallery/club-life/club-01.jpg",
-      "images": [
-        "./assets/gallery/club-life/club-01.jpg",
-        "./assets/gallery/club-life/club-02.jpg",
-        "./assets/gallery/club-life/club-03.jpg",
-        "./assets/gallery/club-life/club-04.jpg",
-        "./assets/gallery/club-life/club-05.jpg",
-        "./assets/gallery/club-life/club-06.jpg",
-        "./assets/gallery/club-life/club-07.jpg",
-        "./assets/gallery/club-life/club-08.jpg",
-        "./assets/gallery/club-life/club-09.jpg",
-        "./assets/gallery/club-life/club-10.jpg",
-        "./assets/gallery/club-life/club-11.jpg",
-        "./assets/gallery/club-life/club-12.jpg",
-        "./assets/gallery/club-life/club-13.jpg"
-      ]
-    }
-  ]
+    "version":  1,
+    "albums":  [
+                   {
+                       "id":  "kids-athletics",
+                       "title":  "Детска атлетика",
+                       "subtitle":  "Моменти от тренировките",
+                       "cover":  "./assets/gallery/kids-athletics/kids-03.jpg",
+                       "images":  [
+                                      "./assets/gallery/kids-athletics/kids-01.jpg",
+                                      "./assets/gallery/kids-athletics/kids-02.jpg",
+                                      "./assets/gallery/kids-athletics/kids-03.jpg",
+                                      "./assets/gallery/kids-athletics/kids-04.jpg"
+                                  ]
+                   },
+                   {
+                       "id":  "training-process",
+                       "title":  "Тренировъчен процес",
+                       "subtitle":  "Подготовка и развитие на нашите атлети",
+                       "cover":  "./assets/gallery/Тренировъчен процес/training-01.jpg",
+                       "images":  [
+                                      "./assets/gallery/Тренировъчен процес/training-01.jpg",
+                                      "./assets/gallery/Тренировъчен процес/training-02.jpg",
+                                      "./assets/gallery/Тренировъчен процес/training-03.jpg"
+                                  ]
+                   },
+                   {
+                       "id":  "competitions",
+                       "title":  "Състезания",
+                       "subtitle":  "Моменти от състезателния сезон",
+                       "cover":  "./assets/gallery/competitions/competition-01.jpg",
+                       "images":  [
+                                      "./assets/gallery/competitions/competition-01.jpg",
+                                      "./assets/gallery/competitions/competition-02.jpg",
+                                      "./assets/gallery/competitions/competition-03.jpg",
+                                      "./assets/gallery/competitions/competition-04.jpg",
+                                      "./assets/gallery/competitions/competition-05.jpg",
+                                      "./assets/gallery/competitions/competition-06.jpg",
+                                      "./assets/gallery/competitions/competition-07.jpg",
+                                      "./assets/gallery/competitions/competition-08.jpg",
+                                      "./assets/gallery/competitions/competition-09.jpg"
+                                  ]
+                   },
+                   {
+                       "id":  "kids-day",
+                       "title":  "Клубен живот",
+                       "subtitle":  "Събития и моменти от живота на клуба",
+                       "cover":  "./assets/gallery/club-life/club-01.jpg",
+                       "images":  [
+                                      "./assets/gallery/club-life/club-01.jpg",
+                                      "./assets/gallery/club-life/club-02.jpg",
+                                      "./assets/gallery/club-life/club-03.jpg",
+                                      "./assets/gallery/club-life/club-04.jpg",
+                                      "./assets/gallery/club-life/club-05.jpg",
+                                      "./assets/gallery/club-life/club-06.jpg",
+                                      "./assets/gallery/club-life/club-07.jpg",
+                                      "./assets/gallery/club-life/club-08.jpg",
+                                      "./assets/gallery/club-life/club-09.jpg",
+                                      "./assets/gallery/club-life/club-10.jpg",
+                                      "./assets/gallery/club-life/club-11.jpg",
+                                      "./assets/gallery/club-life/club-12.jpg",
+                                      "./assets/gallery/club-life/club-13.jpg"
+                                  ]
+                   }
+               ]
 }
