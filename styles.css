@@ -1256,6 +1256,10 @@ h2 {
     var(--color-bg);
 }
 
+.section.contact-section {
+  padding-bottom: 64px;
+}
+
 .contact-section .section-label {
   color: var(--color-lime);
 }
@@ -1443,6 +1447,57 @@ h2 {
   color: var(--color-text);
   font-size: 1.08rem;
   font-weight: 700;
+}
+
+.partners-strip {
+  overflow-x: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--color-bg);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.14) transparent;
+}
+
+.partners-strip-inner {
+  display: flex;
+  width: min(100% - 40px, 1000px);
+  height: 95px;
+  min-width: 700px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 42px;
+}
+
+.partners-strip img {
+  display: block;
+  width: auto;
+  height: auto;
+  flex: 0 0 auto;
+  opacity: 0.9;
+  object-fit: contain;
+}
+
+.partners-strip img:nth-child(1) {
+  width: 260px;
+  opacity: 0.98;
+}
+
+.partners-strip img:nth-child(2) {
+  height: 68px;
+  opacity: 0.9;
+}
+
+.partners-strip img:nth-child(3) {
+  height: 72px;
+  opacity: 0.95;
+}
+
+.partners-strip img:nth-child(4) {
+  width: 195px;
+  opacity: 0.88;
+}
+
+.partners-strip + .site-footer {
+  border-top: 0;
 }
 
 .site-footer {
@@ -1713,6 +1768,45 @@ h2 {
   .footer-inner {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .partners-strip {
+    overflow-x: hidden;
+  }
+
+  .container.partners-strip-inner {
+    display: grid;
+    width: min(100% - 24px, 360px);
+    height: 152px;
+    min-width: 0;
+    padding-block: 10px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 18px;
+    row-gap: 12px;
+  }
+
+  .partners-strip img {
+    max-width: 100%;
+    justify-self: center;
+    align-self: center;
+  }
+
+  .partners-strip img:nth-child(1) {
+    width: min(132px, 100%);
+  }
+
+  .partners-strip img:nth-child(2) {
+    width: auto;
+    height: 50px;
+  }
+
+  .partners-strip img:nth-child(3) {
+    width: auto;
+    height: 56px;
+  }
+
+  .partners-strip img:nth-child(4) {
+    width: min(126px, 100%);
   }
 }
 
