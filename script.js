@@ -25,7 +25,8 @@ const navigationSections = [...navigationLinks]
 let activeGalleryAlbum = null;
 let activeLightboxIndex = 0;
 
-const galleryAlbums = [
+const galleryManifestPath = "./assets/gallery/gallery-manifest.json";
+const fallbackGalleryAlbums = [
   {
     id: "kids-athletics",
     title: "Детска атлетика",
@@ -81,9 +82,67 @@ const galleryAlbums = [
       "./assets/gallery/club-life/club-08.jpg",
       "./assets/gallery/club-life/club-09.jpg",
       "./assets/gallery/club-life/club-10.jpg",
+      "./assets/gallery/club-life/club-11.jpg",
+      "./assets/gallery/club-life/club-12.jpg",
+      "./assets/gallery/club-life/club-13.jpg",
     ],
   },
 ];
+let galleryAlbums = fallbackGalleryAlbums;
+
+function isValidGalleryImagePath(path) {
+  return (
+    typeof path === "string" &&
+    path.startsWith("./assets/gallery/") &&
+    /\.(?:jpe?g|png|webp)$/i.test(path)
+  );
+}
+
+function getAlbumsFromManifest(manifest) {
+  if (!manifest || !Array.isArray(manifest.albums)) {
+    throw new Error("Gallery manifest has no albums array.");
+  }
+
+  const manifestAlbums = new Map(
+    manifest.albums.map((album) => [album?.id, album])
+  );
+
+  return fallbackGalleryAlbums.map((fallbackAlbum) => {
+    const manifestAlbum = manifestAlbums.get(fallbackAlbum.id);
+    const hasValidImages =
+      Array.isArray(manifestAlbum?.images) &&
+      manifestAlbum.images.length > 0 &&
+      manifestAlbum.images.every(isValidGalleryImagePath);
+    const hasValidCover =
+      isValidGalleryImagePath(manifestAlbum?.cover) &&
+      manifestAlbum.images.includes(manifestAlbum.cover);
+
+    if (!hasValidImages || !hasValidCover) {
+      throw new Error(`Invalid gallery manifest album: ${fallbackAlbum.id}`);
+    }
+
+    return {
+      ...fallbackAlbum,
+      cover: manifestAlbum.cover,
+      images: manifestAlbum.images,
+    };
+  });
+}
+
+async function loadGalleryManifest() {
+  try {
+    const response = await fetch(galleryManifestPath, { cache: "no-cache" });
+
+    if (!response.ok) {
+      throw new Error(`Gallery manifest request failed: ${response.status}`);
+    }
+
+    galleryAlbums = getAlbumsFromManifest(await response.json());
+    renderGalleryAlbums();
+  } catch (error) {
+    console.warn("Gallery manifest unavailable; using fallback images.", error);
+  }
+}
 
 function getHeaderOffset() {
   return siteHeader.offsetHeight + 16;
@@ -512,5 +571,6 @@ window.addEventListener("resize", () => {
 window.addEventListener("scroll", updateActiveNavigation, { passive: true });
 
 renderGalleryAlbums();
+loadGalleryManifest();
 updateActiveNavigation();
 yearElement.textContent = new Date().getFullYear();
