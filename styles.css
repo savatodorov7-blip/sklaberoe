@@ -791,6 +791,12 @@ h2 {
     linear-gradient(180deg, var(--color-surface), var(--color-bg-soft));
 }
 
+.coach-photo picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .coach-photo img {
   display: block;
   width: 100%;
