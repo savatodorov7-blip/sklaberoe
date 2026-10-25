@@ -590,6 +590,10 @@ menuButton.addEventListener("click", () => {
   );
   navigation.classList.toggle("is-open", !isOpen);
   document.body.classList.toggle("menu-open", !isOpen);
+
+  if (!isOpen) {
+    navigation.querySelector("a")?.focus();
+  }
 });
 
 hashLinks.forEach((link) => {
@@ -655,6 +659,13 @@ galleryLightbox?.addEventListener("click", (event) => {
 });
 
 document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && navigation.classList.contains("is-open")) {
+    event.preventDefault();
+    closeMenu();
+    menuButton.focus();
+    return;
+  }
+
   if (!galleryLightbox || galleryLightbox.hidden) {
     return;
   }
@@ -691,4 +702,7 @@ window.addEventListener("scroll", updateActiveNavigation, { passive: true });
 
 initializeGallery();
 updateActiveNavigation();
-yearElement.textContent = new Date().getFullYear();
+
+if (yearElement) {
+  yearElement.textContent = new Date().getFullYear();
+}
