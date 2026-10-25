@@ -1,0 +1,192 @@
+{
+    "version":  1,
+    "settings":  "jpeg-v1-thumb-700-q78-full-1920-q85",
+    "entries":  [
+                    {
+                        "source":  "kids-athletics/kids-01.jpg",
+                        "sha256":  "945841D8D033430AA5FB2A2ADF1D17D215E034893FC35EE510125BA01370C07D",
+                        "thumbnail":  "./assets/gallery/optimized/kids-athletics/thumbnails/kids-01.jpg",
+                        "full":  "./assets/gallery/optimized/kids-athletics/full/kids-01.jpg"
+                    },
+                    {
+                        "source":  "kids-athletics/kids-02.jpg",
+                        "sha256":  "C8C8252A4906F78664A78D31023A0DA9DD9016D7AFD7923362CF5F2C0729D63B",
+                        "thumbnail":  "./assets/gallery/optimized/kids-athletics/thumbnails/kids-02.jpg",
+                        "full":  "./assets/gallery/optimized/kids-athletics/full/kids-02.jpg"
+                    },
+                    {
+                        "source":  "kids-athletics/kids-03.jpg",
+                        "sha256":  "50E00EDF69E3ACC70CB66785F5DFA52E08320D372656AC85C22B8E01F798625D",
+                        "thumbnail":  "./assets/gallery/optimized/kids-athletics/thumbnails/kids-03.jpg",
+                        "full":  "./assets/gallery/optimized/kids-athletics/full/kids-03.jpg"
+                    },
+                    {
+                        "source":  "kids-athletics/kids-04.jpg",
+                        "sha256":  "CF5E69F9A217062FF7ECD0024431DB44BF96019D82A79FF83D2A6B2CAA7BD4BC",
+                        "thumbnail":  "./assets/gallery/optimized/kids-athletics/thumbnails/kids-04.jpg",
+                        "full":  "./assets/gallery/optimized/kids-athletics/full/kids-04.jpg"
+                    },
+                    {
+                        "source":  "kids-athletics/kids-05.jpg",
+                        "sha256":  "CDFB571D6CD29F45C3B66B514D3A9207DCB1F59C883FA1E0CAA74198EF3F32BF",
+                        "thumbnail":  "./assets/gallery/optimized/kids-athletics/thumbnails/kids-05.jpg",
+                        "full":  "./assets/gallery/optimized/kids-athletics/full/kids-05.jpg"
+                    },
+                    {
+                        "source":  "kids-athletics/kids-06.jpg",
+                        "sha256":  "A5391DE22F76C3EBF44BCC9DC9340D54D58F1E7E1D43953A4E067D7D415FDE94",
+                        "thumbnail":  "./assets/gallery/optimized/kids-athletics/thumbnails/kids-06.jpg",
+                        "full":  "./assets/gallery/optimized/kids-athletics/full/kids-06.jpg"
+                    },
+                    {
+                        "source":  "training-process/training-01.jpg",
+                        "sha256":  "4AA23F945048453DF2382EA955CE3777513BD55FCD4729FC0E1F05F5426F3574",
+                        "thumbnail":  "./assets/gallery/optimized/training-process/thumbnails/training-01.jpg",
+                        "full":  "./assets/gallery/optimized/training-process/full/training-01.jpg"
+                    },
+                    {
+                        "source":  "training-process/training-02.jpg",
+                        "sha256":  "10D8DDD82DEB35D91B9F1E4230A31EFEAC6652465AAA18088FB24460B110DDE7",
+                        "thumbnail":  "./assets/gallery/optimized/training-process/thumbnails/training-02.jpg",
+                        "full":  "./assets/gallery/optimized/training-process/full/training-02.jpg"
+                    },
+                    {
+                        "source":  "training-process/training-03.jpg",
+                        "sha256":  "547CD90D98FD03097D6FE86036961B6BDE8E6715136DEDD433B44F5BC9DFF541",
+                        "thumbnail":  "./assets/gallery/optimized/training-process/thumbnails/training-03.jpg",
+                        "full":  "./assets/gallery/optimized/training-process/full/training-03.jpg"
+                    },
+                    {
+                        "source":  "competitions/competition-09.jpg",
+                        "sha256":  "9D98B89A49168C10FF555A52E238BC8794A631067897259C60D9A2B8C9CDE6EA",
+                        "thumbnail":  "./assets/gallery/optimized/competitions/thumbnails/competition-09.jpg",
+                        "full":  "./assets/gallery/optimized/competitions/full/competition-09.jpg"
+                    },
+                    {
+                        "source":  "competitions/competition-01.jpg",
+                        "sha256":  "4482535E7F86BBD3433DCBCE13418875944D6B470F4E02F835617F0825848E3F",
+                        "thumbnail":  "./assets/gallery/optimized/competitions/thumbnails/competition-01.jpg",
+                        "full":  "./assets/gallery/optimized/competitions/full/competition-01.jpg"
+                    },
+                    {
+                        "source":  "competitions/competition-02.jpg",
+                        "sha256":  "7F6417CF41DCEBB59C2EF3D5F1AF30BF33C62F01EDFCDADCDCFA794124E531B5",
+                        "thumbnail":  "./assets/gallery/optimized/competitions/thumbnails/competition-02.jpg",
+                        "full":  "./assets/gallery/optimized/competitions/full/competition-02.jpg"
+                    },
+                    {
+                        "source":  "competitions/competition-03.jpg",
+                        "sha256":  "14E4BE4B9000B363B563B31FA04B5472E78E021D196974417C9B523F99BE0B20",
+                        "thumbnail":  "./assets/gallery/optimized/competitions/thumbnails/competition-03.jpg",
+                        "full":  "./assets/gallery/optimized/competitions/full/competition-03.jpg"
+                    },
+                    {
+                        "source":  "competitions/competition-04.jpg",
+                        "sha256":  "04AA1247751CF007CECB50B04BE3D7F0DDBEE77E17A6ABECC7E30AA231069FCD",
+                        "thumbnail":  "./assets/gallery/optimized/competitions/thumbnails/competition-04.jpg",
+                        "full":  "./assets/gallery/optimized/competitions/full/competition-04.jpg"
+                    },
+                    {
+                        "source":  "competitions/competition-05.jpg",
+                        "sha256":  "9DC3E63B7A25DF9605C39B91030D5D2FD99D9CBF4EF045DA3C35C436A56BBB8D",
+                        "thumbnail":  "./assets/gallery/optimized/competitions/thumbnails/competition-05.jpg",
+                        "full":  "./assets/gallery/optimized/competitions/full/competition-05.jpg"
+                    },
+                    {
+                        "source":  "competitions/competition-06.jpg",
+                        "sha256":  "CC496A5B0BA035C1E6D49D0C9655DE41DC7F6B18A1731FFC19B8429974E57E8C",
+                        "thumbnail":  "./assets/gallery/optimized/competitions/thumbnails/competition-06.jpg",
+                        "full":  "./assets/gallery/optimized/competitions/full/competition-06.jpg"
+                    },
+                    {
+                        "source":  "competitions/competition-07.jpg",
+                        "sha256":  "4FB55DE6F92B3F2AC236ACCF6DDBCB89585A575A359CA09C2DF8378E2DFEDFB3",
+                        "thumbnail":  "./assets/gallery/optimized/competitions/thumbnails/competition-07.jpg",
+                        "full":  "./assets/gallery/optimized/competitions/full/competition-07.jpg"
+                    },
+                    {
+                        "source":  "competitions/competition-08.jpg",
+                        "sha256":  "FD276F9F473C3A19CB67811191D7D0EF725364202334F5D1AC95EA06D0D43851",
+                        "thumbnail":  "./assets/gallery/optimized/competitions/thumbnails/competition-08.jpg",
+                        "full":  "./assets/gallery/optimized/competitions/full/competition-08.jpg"
+                    },
+                    {
+                        "source":  "kids-day/club-01.jpg",
+                        "sha256":  "3EB39690B1F905C6A782D322AC3DF3CBD3923D48DF35021C03DA517596EF1C74",
+                        "thumbnail":  "./assets/gallery/optimized/kids-day/thumbnails/club-01.jpg",
+                        "full":  "./assets/gallery/optimized/kids-day/full/club-01.jpg"
+                    },
+                    {
+                        "source":  "kids-day/club-02.jpg",
+                        "sha256":  "E82BEC2833EFE49F153831898F3F03366F26AD4600220F50F87508BC3C31DD15",
+                        "thumbnail":  "./assets/gallery/optimized/kids-day/thumbnails/club-02.jpg",
+                        "full":  "./assets/gallery/optimized/kids-day/full/club-02.jpg"
+                    },
+                    {
+                        "source":  "kids-day/club-03.jpg",
+                        "sha256":  "2F866C5D04C1CC99C4189C3F8AB063CB369E0677AF4799C680CB2A162A083EE3",
+                        "thumbnail":  "./assets/gallery/optimized/kids-day/thumbnails/club-03.jpg",
+                        "full":  "./assets/gallery/optimized/kids-day/full/club-03.jpg"
+                    },
+                    {
+                        "source":  "kids-day/club-04.jpg",
+                        "sha256":  "903C419C6F5AF13C8C455E12648F74D3196282324EC003B6C18B6CABF3AC6BEE",
+                        "thumbnail":  "./assets/gallery/optimized/kids-day/thumbnails/club-04.jpg",
+                        "full":  "./assets/gallery/optimized/kids-day/full/club-04.jpg"
+                    },
+                    {
+                        "source":  "kids-day/club-05.jpg",
+                        "sha256":  "49FDA70DB1B852D0861EB785C74A6B8BC2C9C4EC36AFD8EAD8DFCD1EEDD8E0D1",
+                        "thumbnail":  "./assets/gallery/optimized/kids-day/thumbnails/club-05.jpg",
+                        "full":  "./assets/gallery/optimized/kids-day/full/club-05.jpg"
+                    },
+                    {
+                        "source":  "kids-day/club-06.jpg",
+                        "sha256":  "F5331642434E96687E925888F094630B7B7785F9C50D984CF4DDA3EAA8BE0C9C",
+                        "thumbnail":  "./assets/gallery/optimized/kids-day/thumbnails/club-06.jpg",
+                        "full":  "./assets/gallery/optimized/kids-day/full/club-06.jpg"
+                    },
+                    {
+                        "source":  "kids-day/club-07.jpg",
+                        "sha256":  "F47F188D301C71B598087A97C6DB1E4C3A0BC268708405E61A21DB6C8009E3A0",
+                        "thumbnail":  "./assets/gallery/optimized/kids-day/thumbnails/club-07.jpg",
+                        "full":  "./assets/gallery/optimized/kids-day/full/club-07.jpg"
+                    },
+                    {
+                        "source":  "kids-day/club-08.jpg",
+                        "sha256":  "84DD362EEC10294D4316F40F75666C54B052DF618F665635303F4B05B9660825",
+                        "thumbnail":  "./assets/gallery/optimized/kids-day/thumbnails/club-08.jpg",
+                        "full":  "./assets/gallery/optimized/kids-day/full/club-08.jpg"
+                    },
+                    {
+                        "source":  "kids-day/club-09.jpg",
+                        "sha256":  "8B9B1F4AD904FB2A4C443402334D23F5E34D343C979368E5C5403EBBF2E201F9",
+                        "thumbnail":  "./assets/gallery/optimized/kids-day/thumbnails/club-09.jpg",
+                        "full":  "./assets/gallery/optimized/kids-day/full/club-09.jpg"
+                    },
+                    {
+                        "source":  "kids-day/club-10.jpg",
+                        "sha256":  "2578348F663EBFD6C338DB7E3CEAFBF60FC5D622092AF42B1CD1C79A71A51A66",
+                        "thumbnail":  "./assets/gallery/optimized/kids-day/thumbnails/club-10.jpg",
+                        "full":  "./assets/gallery/optimized/kids-day/full/club-10.jpg"
+                    },
+                    {
+                        "source":  "kids-day/club-11.jpg",
+                        "sha256":  "6E96650CD846E981C818B2E14B1B3A44DA51586831995CAAFC0C37F20FE2F905",
+                        "thumbnail":  "./assets/gallery/optimized/kids-day/thumbnails/club-11.jpg",
+                        "full":  "./assets/gallery/optimized/kids-day/full/club-11.jpg"
+                    },
+                    {
+                        "source":  "kids-day/club-12.jpg",
+                        "sha256":  "3B46838082CA7C34538FD0959DC7B5697BF08C5DB7BA7EC98DDC7D36F55D3A8E",
+                        "thumbnail":  "./assets/gallery/optimized/kids-day/thumbnails/club-12.jpg",
+                        "full":  "./assets/gallery/optimized/kids-day/full/club-12.jpg"
+                    },
+                    {
+                        "source":  "kids-day/club-13.jpg",
+                        "sha256":  "18B1F4C765C32B99ED1B682DE4BC433699129B7D52F7928963389F210FC0EB0C",
+                        "thumbnail":  "./assets/gallery/optimized/kids-day/thumbnails/club-13.jpg",
+                        "full":  "./assets/gallery/optimized/kids-day/full/club-13.jpg"
+                    }
+                ]
+}

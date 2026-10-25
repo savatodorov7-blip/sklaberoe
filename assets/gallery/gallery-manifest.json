@@ -1,11 +1,12 @@
 {
-    "version":  1,
+    "version":  2,
     "albums":  [
                    {
                        "id":  "kids-athletics",
                        "title":  "Детска атлетика",
                        "subtitle":  "Моменти от тренировките",
                        "cover":  "./assets/gallery/kids-athletics/kids-03.jpg",
+                       "coverThumbnail":  "./assets/gallery/optimized/kids-athletics/thumbnails/kids-03.jpg",
                        "images":  [
                                       "./assets/gallery/kids-athletics/kids-01.jpg",
                                       "./assets/gallery/kids-athletics/kids-02.jpg",
@@ -13,24 +14,52 @@
                                       "./assets/gallery/kids-athletics/kids-04.jpg",
                                       "./assets/gallery/kids-athletics/kids-05.jpg",
                                       "./assets/gallery/kids-athletics/kids-06.jpg"
-                                  ]
+                                  ],
+                       "thumbnails":  [
+                                          "./assets/gallery/optimized/kids-athletics/thumbnails/kids-01.jpg",
+                                          "./assets/gallery/optimized/kids-athletics/thumbnails/kids-02.jpg",
+                                          "./assets/gallery/optimized/kids-athletics/thumbnails/kids-03.jpg",
+                                          "./assets/gallery/optimized/kids-athletics/thumbnails/kids-04.jpg",
+                                          "./assets/gallery/optimized/kids-athletics/thumbnails/kids-05.jpg",
+                                          "./assets/gallery/optimized/kids-athletics/thumbnails/kids-06.jpg"
+                                      ],
+                       "fullImages":  [
+                                          "./assets/gallery/optimized/kids-athletics/full/kids-01.jpg",
+                                          "./assets/gallery/optimized/kids-athletics/full/kids-02.jpg",
+                                          "./assets/gallery/optimized/kids-athletics/full/kids-03.jpg",
+                                          "./assets/gallery/optimized/kids-athletics/full/kids-04.jpg",
+                                          "./assets/gallery/optimized/kids-athletics/full/kids-05.jpg",
+                                          "./assets/gallery/optimized/kids-athletics/full/kids-06.jpg"
+                                      ]
                    },
                    {
                        "id":  "training-process",
                        "title":  "Тренировъчен процес",
                        "subtitle":  "Подготовка и развитие на нашите атлети",
                        "cover":  "./assets/gallery/Тренировъчен процес/training-01.jpg",
+                       "coverThumbnail":  "./assets/gallery/optimized/training-process/thumbnails/training-01.jpg",
                        "images":  [
                                       "./assets/gallery/Тренировъчен процес/training-01.jpg",
                                       "./assets/gallery/Тренировъчен процес/training-02.jpg",
                                       "./assets/gallery/Тренировъчен процес/training-03.jpg"
-                                  ]
+                                  ],
+                       "thumbnails":  [
+                                          "./assets/gallery/optimized/training-process/thumbnails/training-01.jpg",
+                                          "./assets/gallery/optimized/training-process/thumbnails/training-02.jpg",
+                                          "./assets/gallery/optimized/training-process/thumbnails/training-03.jpg"
+                                      ],
+                       "fullImages":  [
+                                          "./assets/gallery/optimized/training-process/full/training-01.jpg",
+                                          "./assets/gallery/optimized/training-process/full/training-02.jpg",
+                                          "./assets/gallery/optimized/training-process/full/training-03.jpg"
+                                      ]
                    },
                    {
                        "id":  "competitions",
                        "title":  "Състезания",
                        "subtitle":  "Моменти от състезателния сезон",
                        "cover":  "./assets/gallery/competitions/competition-09.jpg",
+                       "coverThumbnail":  "./assets/gallery/optimized/competitions/thumbnails/competition-09.jpg",
                        "images":  [
                                       "./assets/gallery/competitions/competition-09.jpg",
                                       "./assets/gallery/competitions/competition-01.jpg",
@@ -41,13 +70,36 @@
                                       "./assets/gallery/competitions/competition-06.jpg",
                                       "./assets/gallery/competitions/competition-07.jpg",
                                       "./assets/gallery/competitions/competition-08.jpg"
-                                  ]
+                                  ],
+                       "thumbnails":  [
+                                          "./assets/gallery/optimized/competitions/thumbnails/competition-09.jpg",
+                                          "./assets/gallery/optimized/competitions/thumbnails/competition-01.jpg",
+                                          "./assets/gallery/optimized/competitions/thumbnails/competition-02.jpg",
+                                          "./assets/gallery/optimized/competitions/thumbnails/competition-03.jpg",
+                                          "./assets/gallery/optimized/competitions/thumbnails/competition-04.jpg",
+                                          "./assets/gallery/optimized/competitions/thumbnails/competition-05.jpg",
+                                          "./assets/gallery/optimized/competitions/thumbnails/competition-06.jpg",
+                                          "./assets/gallery/optimized/competitions/thumbnails/competition-07.jpg",
+                                          "./assets/gallery/optimized/competitions/thumbnails/competition-08.jpg"
+                                      ],
+                       "fullImages":  [
+                                          "./assets/gallery/optimized/competitions/full/competition-09.jpg",
+                                          "./assets/gallery/optimized/competitions/full/competition-01.jpg",
+                                          "./assets/gallery/optimized/competitions/full/competition-02.jpg",
+                                          "./assets/gallery/optimized/competitions/full/competition-03.jpg",
+                                          "./assets/gallery/optimized/competitions/full/competition-04.jpg",
+                                          "./assets/gallery/optimized/competitions/full/competition-05.jpg",
+                                          "./assets/gallery/optimized/competitions/full/competition-06.jpg",
+                                          "./assets/gallery/optimized/competitions/full/competition-07.jpg",
+                                          "./assets/gallery/optimized/competitions/full/competition-08.jpg"
+                                      ]
                    },
                    {
                        "id":  "kids-day",
                        "title":  "Клубен живот",
                        "subtitle":  "Събития и моменти от живота на клуба",
                        "cover":  "./assets/gallery/club-life/club-01.jpg",
+                       "coverThumbnail":  "./assets/gallery/optimized/kids-day/thumbnails/club-01.jpg",
                        "images":  [
                                       "./assets/gallery/club-life/club-01.jpg",
                                       "./assets/gallery/club-life/club-02.jpg",
@@ -62,7 +114,37 @@
                                       "./assets/gallery/club-life/club-11.jpg",
                                       "./assets/gallery/club-life/club-12.jpg",
                                       "./assets/gallery/club-life/club-13.jpg"
-                                  ]
+                                  ],
+                       "thumbnails":  [
+                                          "./assets/gallery/optimized/kids-day/thumbnails/club-01.jpg",
+                                          "./assets/gallery/optimized/kids-day/thumbnails/club-02.jpg",
+                                          "./assets/gallery/optimized/kids-day/thumbnails/club-03.jpg",
+                                          "./assets/gallery/optimized/kids-day/thumbnails/club-04.jpg",
+                                          "./assets/gallery/optimized/kids-day/thumbnails/club-05.jpg",
+                                          "./assets/gallery/optimized/kids-day/thumbnails/club-06.jpg",
+                                          "./assets/gallery/optimized/kids-day/thumbnails/club-07.jpg",
+                                          "./assets/gallery/optimized/kids-day/thumbnails/club-08.jpg",
+                                          "./assets/gallery/optimized/kids-day/thumbnails/club-09.jpg",
+                                          "./assets/gallery/optimized/kids-day/thumbnails/club-10.jpg",
+                                          "./assets/gallery/optimized/kids-day/thumbnails/club-11.jpg",
+                                          "./assets/gallery/optimized/kids-day/thumbnails/club-12.jpg",
+                                          "./assets/gallery/optimized/kids-day/thumbnails/club-13.jpg"
+                                      ],
+                       "fullImages":  [
+                                          "./assets/gallery/optimized/kids-day/full/club-01.jpg",
+                                          "./assets/gallery/optimized/kids-day/full/club-02.jpg",
+                                          "./assets/gallery/optimized/kids-day/full/club-03.jpg",
+                                          "./assets/gallery/optimized/kids-day/full/club-04.jpg",
+                                          "./assets/gallery/optimized/kids-day/full/club-05.jpg",
+                                          "./assets/gallery/optimized/kids-day/full/club-06.jpg",
+                                          "./assets/gallery/optimized/kids-day/full/club-07.jpg",
+                                          "./assets/gallery/optimized/kids-day/full/club-08.jpg",
+                                          "./assets/gallery/optimized/kids-day/full/club-09.jpg",
+                                          "./assets/gallery/optimized/kids-day/full/club-10.jpg",
+                                          "./assets/gallery/optimized/kids-day/full/club-11.jpg",
+                                          "./assets/gallery/optimized/kids-day/full/club-12.jpg",
+                                          "./assets/gallery/optimized/kids-day/full/club-13.jpg"
+                                      ]
                    }
                ]
 }

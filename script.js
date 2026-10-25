@@ -117,18 +117,42 @@ function getAlbumsFromManifest(manifest) {
       Array.isArray(manifestAlbum?.images) &&
       manifestAlbum.images.length > 0 &&
       manifestAlbum.images.every(isValidGalleryImagePath);
+    const hasValidThumbnails =
+      Array.isArray(manifestAlbum?.thumbnails) &&
+      manifestAlbum.thumbnails.length === manifestAlbum.images.length &&
+      manifestAlbum.thumbnails.every(isValidGalleryImagePath);
+    const hasValidFullImages =
+      Array.isArray(manifestAlbum?.fullImages) &&
+      manifestAlbum.fullImages.length === manifestAlbum.images.length &&
+      manifestAlbum.fullImages.every(isValidGalleryImagePath);
     const hasValidCover =
       isValidGalleryImagePath(manifestAlbum?.cover) &&
       manifestAlbum.images.includes(manifestAlbum.cover);
+    const coverIndex = hasValidImages
+      ? manifestAlbum.images.indexOf(manifestAlbum.cover)
+      : -1;
+    const hasValidCoverThumbnail =
+      hasValidThumbnails &&
+      isValidGalleryImagePath(manifestAlbum?.coverThumbnail) &&
+      manifestAlbum.thumbnails[coverIndex] === manifestAlbum.coverThumbnail;
 
-    if (!hasValidImages || !hasValidCover) {
+    if (
+      !hasValidImages ||
+      !hasValidThumbnails ||
+      !hasValidFullImages ||
+      !hasValidCover ||
+      !hasValidCoverThumbnail
+    ) {
       throw new Error(`Invalid gallery manifest album: ${fallbackAlbum.id}`);
     }
 
     return {
       ...fallbackAlbum,
       cover: manifestAlbum.cover,
+      coverThumbnail: manifestAlbum.coverThumbnail,
       images: manifestAlbum.images,
+      thumbnails: manifestAlbum.thumbnails,
+      fullImages: manifestAlbum.fullImages,
     };
   });
 }
@@ -347,7 +371,10 @@ function renderGalleryAlbums() {
     albumCard.type = "button";
     albumCard.dataset.albumId = album.id;
 
-    const coverImage = createGalleryImage(album.cover, album.title);
+    const coverImage = createGalleryImage(
+      album.coverThumbnail ?? album.cover,
+      album.title
+    );
     const content = document.createElement("div");
     content.className = "gallery-album-content";
     content.innerHTML = `
@@ -391,8 +418,9 @@ function openGalleryAlbum(albumId, options = {}) {
       "aria-label",
       `${album.title} — снимка ${imageIndex + 1} от ${album.images.length}. Отвори в цял екран.`
     );
+    const thumbnailSrc = album.thumbnails?.[imageIndex] ?? imageSrc;
     imageCard.append(
-      createGalleryImage(imageSrc, "", { fetchPriority: "low" })
+      createGalleryImage(thumbnailSrc, "", { fetchPriority: "low" })
     );
     galleryImagesContainer.append(imageCard);
   });
@@ -461,7 +489,9 @@ function updateLightboxImage() {
     return;
   }
 
-  const imageSrc = activeGalleryAlbum.images[activeLightboxIndex];
+  const imageSrc =
+    activeGalleryAlbum.fullImages?.[activeLightboxIndex] ??
+    activeGalleryAlbum.images[activeLightboxIndex];
 
   lightboxImage.src = imageSrc;
   lightboxImage.alt = `${activeGalleryAlbum.title} — снимка ${
