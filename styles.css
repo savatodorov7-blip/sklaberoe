@@ -1476,22 +1476,22 @@ h2 {
   object-fit: contain;
 }
 
-.partners-strip img:nth-child(1) {
-  width: 260px;
+.partners-strip .partner-logo-trakia {
+  width: 286px;
   opacity: 0.98;
 }
 
-.partners-strip img:nth-child(2) {
+.partners-strip .partner-logo-hotel {
   height: 68px;
   opacity: 0.9;
 }
 
-.partners-strip img:nth-child(3) {
+.partners-strip .partner-logo-municipality {
   height: 72px;
   opacity: 0.95;
 }
 
-.partners-strip img:nth-child(4) {
+.partners-strip .partner-logo-metalik {
   width: 195px;
   opacity: 0.88;
 }
@@ -1791,21 +1791,21 @@ h2 {
     align-self: center;
   }
 
-  .partners-strip img:nth-child(1) {
-    width: min(132px, 100%);
+  .partners-strip .partner-logo-trakia {
+    width: min(148px, 100%);
   }
 
-  .partners-strip img:nth-child(2) {
+  .partners-strip .partner-logo-hotel {
     width: auto;
     height: 50px;
   }
 
-  .partners-strip img:nth-child(3) {
+  .partners-strip .partner-logo-municipality {
     width: auto;
     height: 56px;
   }
 
-  .partners-strip img:nth-child(4) {
+  .partners-strip .partner-logo-metalik {
     width: min(126px, 100%);
   }
 }
