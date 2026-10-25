@@ -37,6 +37,8 @@ const fallbackGalleryAlbums = [
       "./assets/gallery/kids-athletics/kids-02.jpg",
       "./assets/gallery/kids-athletics/kids-03.jpg",
       "./assets/gallery/kids-athletics/kids-04.jpg",
+      "./assets/gallery/kids-athletics/kids-05.jpg",
+      "./assets/gallery/kids-athletics/kids-06.jpg",
     ],
   },
   {
