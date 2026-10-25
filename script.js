@@ -1,7 +1,9 @@
 const menuButton = document.querySelector(".menu-toggle");
 const navigation = document.querySelector(".main-nav");
 const navigationLinks = document.querySelectorAll(".main-nav a");
-const hashLinks = document.querySelectorAll('a[href^="#"]');
+const hashLinks = document.querySelectorAll('a[href^="#"]:not(.skip-link)');
+const skipLink = document.querySelector(".skip-link");
+const mainContent = document.querySelector("#main-content");
 const yearElement = document.querySelector("#current-year");
 const siteHeader = document.querySelector(".site-header");
 const gallerySection = document.querySelector("#galeriya");
@@ -649,6 +651,17 @@ menuButton.addEventListener("click", () => {
   if (!isOpen) {
     navigation.querySelector("a")?.focus();
   }
+});
+
+skipLink?.addEventListener("click", (event) => {
+  if (!mainContent) {
+    return;
+  }
+
+  event.preventDefault();
+  mainContent.focus({ preventScroll: true });
+  scrollToSection(document.querySelector("#nachalo") ?? mainContent);
+  history.pushState(null, "", "#main-content");
 });
 
 hashLinks.forEach((link) => {
