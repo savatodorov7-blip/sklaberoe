@@ -709,7 +709,7 @@ h2 {
 
 .coach-cards {
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-columns: repeat(7, minmax(0, 1fr));
   gap: 12px;
 }
 
@@ -747,8 +747,8 @@ h2 {
 .coach-photo-placeholder {
   position: relative;
   display: grid;
-  height: 230px;
-  flex: 0 0 230px;
+  height: 210px;
+  flex: 0 0 210px;
   place-items: center;
   overflow: hidden;
   border-bottom: 1px solid var(--color-border);
@@ -782,8 +782,8 @@ h2 {
 }
 
 .coach-photo {
-  height: 230px;
-  flex: 0 0 230px;
+  height: 210px;
+  flex: 0 0 210px;
   overflow: hidden;
   border-bottom: 1px solid var(--color-border);
   background:
@@ -802,16 +802,16 @@ h2 {
 .coach-card-content {
   display: grid;
   min-width: 0;
-  padding: 18px 16px;
+  padding: 14px 12px;
   flex: 1;
-  grid-template-rows: 2.7em 82px;
-  gap: 12px;
+  grid-template-rows: minmax(2.4em, auto) auto;
+  gap: 8px;
   align-content: start;
 }
 
 .coach-card h3 {
   margin: 0;
-  font-size: 1.08rem;
+  font-size: 0.94rem;
   line-height: 1.25;
   overflow-wrap: anywhere;
 }
@@ -821,23 +821,23 @@ h2 {
   min-height: 0;
   margin: 0;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 5px;
   align-content: flex-start;
   align-items: flex-start;
 }
 
 .coach-roles span {
   display: inline-flex;
-  min-height: 23px;
-  padding: 3px 7px;
+  min-height: 21px;
+  padding: 2px 6px;
   align-items: center;
   color: var(--color-lime);
   background: var(--color-lime-faint);
   border: 1px solid var(--color-lime-soft);
   border-radius: 999px;
-  font-size: 0.64rem;
+  font-size: 0.58rem;
   font-weight: 800;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
@@ -852,7 +852,7 @@ h2 {
   display: none;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1180px) {
   .coach-cards {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 18px;
