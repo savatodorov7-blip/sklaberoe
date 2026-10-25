@@ -24,6 +24,7 @@ const navigationSections = [...navigationLinks]
   .filter(Boolean);
 let activeGalleryAlbum = null;
 let activeLightboxIndex = 0;
+let lastFocusedGalleryIndex = null;
 
 const galleryManifestPath = "./assets/gallery/gallery-manifest.json";
 const fallbackGalleryAlbums = [
@@ -381,11 +382,17 @@ function openGalleryAlbum(albumId, options = {}) {
   galleryImagesContainer.innerHTML = "";
 
   album.images.forEach((imageSrc, imageIndex) => {
-    const imageCard = document.createElement("article");
+    const imageCard = document.createElement("button");
     imageCard.className = "gallery-item";
+    imageCard.type = "button";
     imageCard.dataset.imageIndex = imageIndex;
+    imageCard.setAttribute("aria-haspopup", "dialog");
+    imageCard.setAttribute(
+      "aria-label",
+      `${album.title} — снимка ${imageIndex + 1} от ${album.images.length}. Отвори в цял екран.`
+    );
     imageCard.append(
-      createGalleryImage(imageSrc, album.title, { fetchPriority: "low" })
+      createGalleryImage(imageSrc, "", { fetchPriority: "low" })
     );
     galleryImagesContainer.append(imageCard);
   });
@@ -457,7 +464,9 @@ function updateLightboxImage() {
   const imageSrc = activeGalleryAlbum.images[activeLightboxIndex];
 
   lightboxImage.src = imageSrc;
-  lightboxImage.alt = activeGalleryAlbum.title;
+  lightboxImage.alt = `${activeGalleryAlbum.title} — снимка ${
+    activeLightboxIndex + 1
+  } от ${activeGalleryAlbum.images.length}`;
   lightboxCounter.textContent = `${activeLightboxIndex + 1} / ${
     activeGalleryAlbum.images.length
   }`;
@@ -476,6 +485,11 @@ function openLightbox(imageIndex, options = {}) {
   }
 
   activeLightboxIndex = imageIndex;
+  lastFocusedGalleryIndex = document.activeElement?.classList?.contains(
+    "gallery-item"
+  )
+    ? Number(document.activeElement.dataset.imageIndex)
+    : null;
   updateLightboxImage();
   galleryLightbox.hidden = false;
   document.body.classList.add("lightbox-open");
@@ -504,6 +518,17 @@ function closeLightbox(options = {}) {
   const wasOpen = !galleryLightbox.hidden;
   galleryLightbox.hidden = true;
   document.body.classList.remove("lightbox-open");
+
+  const focusIndex = lastFocusedGalleryIndex;
+  lastFocusedGalleryIndex = null;
+
+  if (wasOpen && Number.isInteger(focusIndex)) {
+    requestAnimationFrame(() => {
+      galleryImagesContainer
+        ?.querySelector(`.gallery-item[data-image-index="${focusIndex}"]`)
+        ?.focus();
+    });
+  }
 
   if (wasOpen && updateHistory && activeGalleryAlbum) {
     history.replaceState(

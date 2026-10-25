@@ -43,8 +43,8 @@
     content="https://beroeskla.com/assets/logo-transparent.png"
   >
 
-  <link rel="stylesheet" href="styles.css?v=20261025-2">
-  <script src="script.js?v=20261025-1" defer></script>
+  <link rel="stylesheet" href="styles.css?v=20261025-3">
+  <script src="script.js?v=20261025-2" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -618,7 +618,14 @@
     </div>
   </footer>
 
-  <div class="gallery-lightbox" data-gallery-lightbox hidden>
+  <div
+    class="gallery-lightbox"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Преглед на снимка"
+    data-gallery-lightbox
+    hidden
+  >
     <button
       class="gallery-lightbox-close"
       type="button"

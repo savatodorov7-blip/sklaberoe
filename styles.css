@@ -1067,17 +1067,28 @@ h2 {
 .gallery-item {
   position: relative;
   display: flex;
+  width: 100%;
   min-height: 280px;
   aspect-ratio: 16 / 11;
+  appearance: none;
   overflow: hidden;
   padding: 0;
   align-items: flex-end;
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
+  color: inherit;
+  cursor: zoom-in;
+  font: inherit;
+  text-align: inherit;
   background:
     linear-gradient(135deg, rgba(167, 233, 47, 0.12), transparent 34%),
     radial-gradient(circle at 80% 18%, rgba(0, 168, 79, 0.2), transparent 34%),
     linear-gradient(145deg, var(--color-surface), var(--color-bg));
+}
+
+.gallery-item:focus-visible {
+  border-color: var(--color-lime-border);
+  box-shadow: 0 0 0 3px rgba(167, 233, 47, 0.18);
 }
 
 .gallery-item::before {
@@ -1098,10 +1109,6 @@ h2 {
   height: 100%;
   object-fit: cover;
   object-position: center 35%;
-}
-
-.gallery-item:has(img) {
-  cursor: zoom-in;
 }
 
 .gallery-item span {
