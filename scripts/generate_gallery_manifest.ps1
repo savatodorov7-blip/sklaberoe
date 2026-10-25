@@ -32,7 +32,8 @@ $albums = @(
         Title = (ConvertFrom-Utf8Base64 "0KHRitGB0YLQtdC30LDQvdC40Y8=")
         Subtitle = (ConvertFrom-Utf8Base64 "0JzQvtC80LXQvdGC0Lgg0L7RgiDRgdGK0YHRgtC10LfQsNGC0LXQu9C90LjRjyDRgdC10LfQvtC9")
         Folder = "assets\gallery\competitions"
-        PreferredCover = "competition-01.jpg"
+        PreferredCover = "competition-09.jpg"
+        CoverFirst = $true
     },
     [PSCustomObject]@{
         Id = "kids-day"
@@ -93,8 +94,16 @@ try {
             $coverFile = $imageFiles[0]
         }
 
+        $orderedImageFiles = $imageFiles
+
+        if ($album.CoverFirst) {
+            $orderedImageFiles = @($coverFile) + @(
+                $imageFiles | Where-Object { $_.FullName -ne $coverFile.FullName }
+            )
+        }
+
         $imagePaths = @(
-            $imageFiles | ForEach-Object {
+            $orderedImageFiles | ForEach-Object {
                 Get-PublicImagePath -Folder $album.Folder -FileName $_.Name
             }
         )

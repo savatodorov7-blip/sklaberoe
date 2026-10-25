@@ -54,8 +54,9 @@ const fallbackGalleryAlbums = [
     id: "competitions",
     title: "Състезания",
     subtitle: "Моменти от състезателния сезон",
-    cover: "./assets/gallery/competitions/competition-01.jpg",
+    cover: "./assets/gallery/competitions/competition-09.jpg",
     images: [
+      "./assets/gallery/competitions/competition-09.jpg",
       "./assets/gallery/competitions/competition-01.jpg",
       "./assets/gallery/competitions/competition-02.jpg",
       "./assets/gallery/competitions/competition-03.jpg",
