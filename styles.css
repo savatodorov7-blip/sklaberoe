@@ -246,10 +246,10 @@ h3 {
   content: "";
   border-inline: 1px solid rgba(167, 233, 47, 0.34);
   background:
-    linear-gradient(125deg, transparent 0 18%, rgba(167, 233, 47, 0.11) 18.3% 18.8%, transparent 19.1% 44%, rgba(167, 233, 47, 0.08) 44.3% 44.8%, transparent 45.1%),
-    radial-gradient(circle at 55% 38%, rgba(0, 168, 79, 0.34), transparent 42%),
-    linear-gradient(135deg, rgba(0, 168, 79, 0.06) 0%, rgba(0, 168, 79, 0.28) 64%, rgba(167, 233, 47, 0.08) 100%),
-    linear-gradient(90deg, transparent, var(--color-lime-faint));
+    linear-gradient(180deg, rgba(1, 20, 12, 0.1), rgba(0, 12, 7, 0.22)),
+    url("./assets/beroe-track-panel.webp");
+  background-position: center, 58% center;
+  background-size: cover;
   box-shadow:
     -42px 0 90px rgba(0, 168, 79, 0.08),
     inset 0 0 80px rgba(0, 0, 0, 0.22);
