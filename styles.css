@@ -734,7 +734,7 @@ h2 {
 
 .coach-cards {
   display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 12px;
 }
 
@@ -830,37 +830,54 @@ h2 {
   object-position: center bottom;
 }
 
+.coach-photo-gabi picture {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.coach-photo-gabi img {
+  width: 92%;
+  height: 92%;
+}
+
 .coach-card-content {
   display: grid;
   min-width: 0;
-  padding: 14px 12px;
+  padding: 12px 2px 10px;
   flex: 1;
-  grid-template-rows: minmax(2.4em, auto) auto;
-  gap: 8px;
+  grid-template-rows: auto auto;
+  gap: 4px;
   align-content: start;
+  justify-items: center;
+  text-align: center;
 }
 
 .coach-card h3 {
+  width: 100%;
   margin: 0;
   font-size: 0.94rem;
   line-height: 1.25;
   overflow-wrap: anywhere;
+  text-align: center;
 }
 
 .coach-roles {
   display: flex;
+  width: 100%;
   min-height: 0;
   margin: 0;
   flex-wrap: wrap;
-  gap: 5px;
+  gap: 4px;
   align-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
 }
 
 .coach-roles span {
   display: inline-flex;
   min-height: 21px;
-  padding: 2px 6px;
+  padding: 2px 4px;
   align-items: center;
   color: var(--color-lime);
   background: var(--color-lime-faint);
@@ -890,8 +907,9 @@ h2 {
   }
 
   .coach-card-content {
-    padding: 22px;
-    grid-template-rows: 3.05em 58px;
+    padding: 14px 14px 12px;
+    grid-template-rows: auto auto;
+    gap: 6px;
   }
 
   .coach-card h3 {
@@ -1768,8 +1786,9 @@ h2 {
   }
 
   .coach-card-content {
+    padding: 14px 12px 12px;
     grid-template-rows: auto auto;
-    gap: 10px;
+    gap: 6px;
   }
 
   .button {
@@ -2124,9 +2143,9 @@ h2 {
 
   .coach-card-content {
     min-width: 0;
-    padding: 20px;
+    padding: 14px 12px 12px;
     grid-template-rows: auto auto;
-    gap: 10px;
+    gap: 6px;
   }
 
   .coach-card h3 {
