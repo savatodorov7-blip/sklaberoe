@@ -1810,14 +1810,14 @@ h2 {
   }
 
   .hero-content {
-    grid-template-columns: minmax(0, 1fr) 104px;
+    grid-template-columns: minmax(0, 1fr) clamp(140px, 38vw, 160px);
     grid-template-areas:
       "status status"
       "title photo"
       "tagline photo"
       "lead lead"
       "actions actions";
-    column-gap: 14px;
+    column-gap: clamp(10px, 3vw, 16px);
     row-gap: 0;
   }
 
