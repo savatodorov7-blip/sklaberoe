@@ -1621,13 +1621,19 @@ h2 {
     overscroll-behavior: contain;
     pointer-events: none;
     transform: translateY(-12px);
-    transition: opacity var(--transition), transform var(--transition);
+    visibility: hidden;
+    transition:
+      opacity var(--transition),
+      transform var(--transition),
+      visibility 0s linear 180ms;
   }
 
   .main-nav.is-open {
     opacity: 1;
     pointer-events: auto;
     transform: translateY(0);
+    visibility: visible;
+    transition-delay: 0s;
   }
 
   .main-nav a {

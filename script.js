@@ -21,6 +21,7 @@ const lightboxCounter = document.querySelector("[data-lightbox-counter]");
 const lightboxCloseButton = document.querySelector("[data-lightbox-close]");
 const lightboxPrevButton = document.querySelector("[data-lightbox-prev]");
 const lightboxNextButton = document.querySelector("[data-lightbox-next]");
+const mobileNavigationQuery = window.matchMedia("(max-width: 900px)");
 const navigationSections = [...navigationLinks]
   .map((link) => document.querySelector(link.getAttribute("href")))
   .filter(Boolean);
@@ -504,6 +505,40 @@ function updateLightboxImage() {
   }`;
 }
 
+function setPageInert(isInert) {
+  [skipLink, siteHeader, mainContent, document.querySelector(".site-footer")]
+    .filter(Boolean)
+    .forEach((element) => {
+      element.inert = isInert;
+    });
+}
+
+function trapLightboxFocus(event) {
+  const focusableButtons = [
+    ...galleryLightbox.querySelectorAll("button:not([hidden])"),
+  ];
+  const firstButton = focusableButtons[0];
+  const lastButton = focusableButtons[focusableButtons.length - 1];
+
+  if (!firstButton) {
+    return;
+  }
+
+  if (!galleryLightbox.contains(document.activeElement)) {
+    event.preventDefault();
+    firstButton.focus();
+    return;
+  }
+
+  if (event.shiftKey && document.activeElement === firstButton) {
+    event.preventDefault();
+    lastButton.focus();
+  } else if (!event.shiftKey && document.activeElement === lastButton) {
+    event.preventDefault();
+    firstButton.focus();
+  }
+}
+
 function openLightbox(imageIndex, options = {}) {
   const { updateHistory = true } = options;
   if (
@@ -517,14 +552,11 @@ function openLightbox(imageIndex, options = {}) {
   }
 
   activeLightboxIndex = imageIndex;
-  lastFocusedGalleryIndex = document.activeElement?.classList?.contains(
-    "gallery-item"
-  )
-    ? Number(document.activeElement.dataset.imageIndex)
-    : null;
+  lastFocusedGalleryIndex = imageIndex;
   updateLightboxImage();
   galleryLightbox.hidden = false;
   document.body.classList.add("lightbox-open");
+  setPageInert(true);
   lightboxCloseButton?.focus();
 
   if (updateHistory) {
@@ -550,6 +582,7 @@ function closeLightbox(options = {}) {
   const wasOpen = !galleryLightbox.hidden;
   galleryLightbox.hidden = true;
   document.body.classList.remove("lightbox-open");
+  setPageInert(false);
 
   const focusIndex = lastFocusedGalleryIndex;
   lastFocusedGalleryIndex = null;
@@ -630,11 +663,17 @@ function showNextImage() {
   replaceLightboxHistory();
 }
 
+function syncNavigationInert() {
+  navigation.inert =
+    mobileNavigationQuery.matches && !navigation.classList.contains("is-open");
+}
+
 function closeMenu() {
   menuButton.setAttribute("aria-expanded", "false");
   menuButton.setAttribute("aria-label", "Отвори навигацията");
   navigation.classList.remove("is-open");
   document.body.classList.remove("menu-open");
+  syncNavigationInert();
 }
 
 menuButton.addEventListener("click", () => {
@@ -647,6 +686,7 @@ menuButton.addEventListener("click", () => {
   );
   navigation.classList.toggle("is-open", !isOpen);
   document.body.classList.toggle("menu-open", !isOpen);
+  syncNavigationInert();
 
   if (!isOpen) {
     navigation.querySelector("a")?.focus();
@@ -738,6 +778,11 @@ document.addEventListener("keydown", (event) => {
     return;
   }
 
+  if (event.key === "Tab") {
+    trapLightboxFocus(event);
+    return;
+  }
+
   if (event.key === "Escape") {
     event.preventDefault();
     closeLightboxFromUser();
@@ -767,7 +812,9 @@ window.addEventListener("resize", () => {
 });
 
 window.addEventListener("scroll", updateActiveNavigation, { passive: true });
+mobileNavigationQuery.addEventListener("change", syncNavigationInert);
 
+syncNavigationInert();
 initializeGallery();
 updateActiveNavigation();
 

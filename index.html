@@ -68,8 +68,8 @@
     }
   </script>
 
-  <link rel="stylesheet" href="styles.css?v=20261025-4">
-  <script src="script.js?v=20261025-4" defer></script>
+  <link rel="stylesheet" href="styles.css?v=20261030-1">
+  <script src="script.js?v=20261030-1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Към основното съдържание</a>
@@ -704,6 +704,7 @@
     role="dialog"
     aria-modal="true"
     aria-label="Преглед на снимка"
+    aria-describedby="lightbox-counter"
     data-gallery-lightbox
     hidden
   >
@@ -725,7 +726,11 @@
     </button>
     <figure class="gallery-lightbox-content">
       <img src="" alt="" decoding="async" data-lightbox-image>
-      <figcaption data-lightbox-counter></figcaption>
+      <figcaption
+        id="lightbox-counter"
+        aria-live="polite"
+        data-lightbox-counter
+      ></figcaption>
     </figure>
     <button
       class="gallery-lightbox-nav gallery-lightbox-next"
