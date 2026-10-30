@@ -68,8 +68,8 @@
     }
   </script>
 
-  <link rel="stylesheet" href="styles.css?v=20261030-1">
-  <script src="script.js?v=20261030-1" defer></script>
+  <link rel="stylesheet" href="styles.css?v=20261030-2">
+  <script src="script.js?v=20261030-2" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Към основното съдържание</a>
@@ -103,6 +103,7 @@
         <a href="#nachalo">Начало</a>
         <a href="#za-kluba">За клуба</a>
         <a href="#trenirovki">Групи</a>
+        <a href="#zapisvane">Записване</a>
         <a href="#trenyori">Треньори</a>
         <a href="#galeriya">Галерия</a>
         <a href="#kontakti">Контакти</a>
@@ -114,17 +115,56 @@
     <section class="hero" id="nachalo">
       <div class="container hero-content">
         <div class="hero-copy">
-          <p class="eyebrow">Лека атлетика · Стара Загора</p>
-          <h1>СКЛА Берое</h1>
           <p class="hero-subtitle">
-            ЗАПИСВАНЕ НА НОВИ ДЕЦА
+            <span class="hero-status-dot" aria-hidden="true"></span>
+            Записване на нови деца
+          </p>
+          <h1>СКЛА Берое</h1>
+          <p class="hero-tagline">
+            <span class="hero-accent">Бягай.</span> Скачай. Хвърляй.
+          </p>
+          <p class="hero-lead">
+            Лека атлетика в Стара Загора за различни възрасти — от първите
+            стъпки в спорта до състезателна подготовка.
           </p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#kontakti">
-              ОБАДЕТЕ СЕ ЗА ЗАПИСВАНЕ
+            <a class="button button-primary" href="tel:+359883441616">
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M6.6 10.8a15.2 15.2 0 0 0 6.6 6.6l2.2-2.2a1.2 1.2 0 0 1 1.2-.3 13 13 0 0 0 3.4.5 1.2 1.2 0 0 1 1.2 1.2v3.5a1.2 1.2 0 0 1-1.2 1.2A17.3 17.3 0 0 1 2.7 4a1.2 1.2 0 0 1 1.2-1.2h3.5A1.2 1.2 0 0 1 8.6 4a13 13 0 0 0 .5 3.4 1.2 1.2 0 0 1-.3 1.2l-2.2 2.2Z"/>
+              </svg>
+              Обадете се: 0883 441 616
+            </a>
+            <a class="button button-ghost" href="#trenirovki">
+              Вижте групите
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M12 5v14m-6-6 6 6 6-6"/>
+              </svg>
             </a>
           </div>
         </div>
+
+        <figure class="hero-photo">
+          <picture>
+            <source
+              media="(max-width: 600px)"
+              srcset="assets/hero/hero-mic3086-mobile-400.webp"
+              type="image/webp"
+            >
+            <source
+              media="(max-width: 600px)"
+              srcset="assets/hero/hero-mic3086-mobile-400.jpg"
+            >
+            <source srcset="assets/hero/hero-mic3086-800.webp" type="image/webp">
+            <img
+              src="assets/hero/hero-mic3086-800.jpg"
+              alt="Момиче от детската група прескача препятствия на пистата на Стадион „Берое“"
+              width="800"
+              height="1210"
+              fetchpriority="high"
+              decoding="async"
+            >
+          </picture>
+        </figure>
       </div>
     </section>
 
@@ -227,27 +267,19 @@
           </article>
         </div>
 
-        <div class="training-cta">
-          <div class="training-cta-visual" aria-hidden="true">
-            <svg viewBox="0 0 144 88" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M44 10h56a34 34 0 0 1 0 68H44a34 34 0 0 1 0-68Z" />
-              <path d="M44 18h56a26 26 0 0 1 0 52H44a26 26 0 0 1 0-52Z" />
-              <path d="M44 26h56a18 18 0 0 1 0 36H44a18 18 0 0 1 0-36Z" />
-            </svg>
-          </div>
+        <div class="training-cta" id="zapisvane">
           <div class="training-cta-content">
-            <p class="training-cta-label">ПЪРВА ТРЕНИРОВКА</p>
-            <h3>Търсите спорт за детето си?</h3>
+            <h3>Станете част от СКЛА „Берое“</h3>
             <p>
-              Леката атлетика развива координация, дисциплина и увереност.
-              Свържете се с нас и ще ви насочим към подходящата група.
+              Ще ви насочим към подходящата група и ще отговорим на въпросите
+              ви за графика, таксите и първата тренировка.
             </p>
           </div>
-          <a class="training-cta-button" href="#kontakti">
-            <span>ОБАДЕТЕ СЕ ЗА ЗАПИСВАНЕ</span>
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M4 12h16m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          <a class="button button-primary" href="tel:+359883441616">
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M6.6 10.8a15.2 15.2 0 0 0 6.6 6.6l2.2-2.2a1.2 1.2 0 0 1 1.2-.3 13 13 0 0 0 3.4.5 1.2 1.2 0 0 1 1.2 1.2v3.5a1.2 1.2 0 0 1-1.2 1.2A17.3 17.3 0 0 1 2.7 4a1.2 1.2 0 0 1 1.2-1.2h3.5A1.2 1.2 0 0 1 8.6 4a13 13 0 0 0 .5 3.4 1.2 1.2 0 0 1-.3 1.2l-2.2 2.2Z"/>
             </svg>
+            Обадете се: 0883 441 616
           </a>
         </div>
       </div>
